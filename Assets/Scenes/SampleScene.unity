@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 26387129}
   - component: {fileID: 26387128}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Button container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 1058224440}
   - component: {fileID: 1058224439}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Upgrade_button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,6 +4,7 @@ public class Tear : MonoBehaviour
 {
     public Transform target;
     public TearSystem system;
+    public int value = 1;
 
     public float speed = 4f;
 
@@ -17,7 +18,9 @@ public class Tear : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) < 0.05f)
         {
-            system.AddCurrency();
+            system.AddCurrency(value);
+            system.SpawnPopup(value, transform.position);
+
             Destroy(gameObject);
         }
     }

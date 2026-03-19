@@ -9,6 +9,9 @@ public class TearSystem : MonoBehaviour
     public SpriteRenderer bottleRenderer;
     public Sprite[] bottleLevels;
     public TextMeshProUGUI bottleText;
+    public GameObject popupPrefab;
+    public Canvas canvas;
+    public TearScoreManager scoreManager;
 
     public float spawnInterval = 3f;
 
@@ -39,9 +42,9 @@ public class TearSystem : MonoBehaviour
         tearScript.system = this;
     }
 
-    public void AddCurrency()
+    public void AddCurrency(int amount)
     {
-        currency = Mathf.Min(currency + 1, bottleCapacity);
+        currency = Mathf.Min(currency + amount, bottleCapacity);
 
         UpdateBottle();
         UpdateText();
@@ -61,5 +64,36 @@ public class TearSystem : MonoBehaviour
     void UpdateText()
     {
         bottleText.text = currency + " / " + bottleCapacity;
+    }
+
+    public void SpawnPopup(int value, Vector3 worldPosition)
+    {
+        GameObject popup = Instantiate(popupPrefab, canvas.transform);
+
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.GetComponent<RectTransform>(),
+            screenPos,
+            canvas.worldCamera,
+            out Vector2 localPoint
+        );
+
+        popup.GetComponent<RectTransform>().localPosition = localPoint;
+
+        popup.GetComponent<PopupText>().Setup(value);
+    }
+
+    public void CollectBottle()
+    {
+        if (currency <= 0) return;
+
+        Debug.Log("Bottle clicked!");
+        scoreManager.AddScore(currency);
+
+        currency = 0;
+
+        UpdateBottle();
+        UpdateText();
     }
 }

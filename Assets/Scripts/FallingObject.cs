@@ -43,7 +43,8 @@ public class FallingObject : MonoBehaviour
         {
             //hitPlayer = true;
             PointSystem.instance.LosePoint();
-            Destroy(gameObject);
+            pixelsPerSecond = 0;
+            //Destroy(gameObject);
         }
     }
 }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 830506450057626157}
   - component: {fileID: 1793319477606251489}
   - component: {fileID: 59292345829660238}
-  - component: {fileID: 8412892844977827854}
   - component: {fileID: 1831864951238328176}
+  - component: {fileID: 1399848713606132136}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1719113965243838581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 4.54, z: 0}
-  m_LocalScale: {x: 0.3029, y: 0.3029, z: 0.3029}
+  m_LocalPosition: {x: -0.09, y: 7.44, z: 0}
+  m_LocalScale: {x: 0.16753398, y: 0.16753398, z: 0.16753398}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7122640840321405082, guid: a6adc41de49bd894b8593538b94e4da3, type: 3}
+  m_Sprite: {fileID: 4701644999925465877, guid: 2afd2cc0cc4ec2848b2b9f3d611dcc11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,34 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0675f6e1e1ed75e49b42ab7a23c461d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingObject
-  fallSpeed: 5
---- !u!50 &8412892844977827854
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719113965243838581}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  pixelsPerSecond: 20
 --- !u!60 &1831864951238328176
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +145,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.93, y: 6.09}
+    oldSize: {x: 9.93, y: 36.81}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,19 +153,45 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 4.9649997, y: -0.515}
-      - {x: 2.855, y: -0.055}
-      - {x: 2.725, y: 0.195}
-      - {x: 2.095, y: 0.185}
-      - {x: 2.095, y: 3.0449998}
-      - {x: 1.415, y: 3.0449998}
-      - {x: 1.415, y: -0.45499998}
-      - {x: -4.9649997, y: -0.45499998}
-      - {x: -4.9649997, y: -1.135}
-      - {x: -4.355, y: -1.8249999}
-      - {x: -1.6949999, y: -3.0449998}
-      - {x: 1.665, y: -3.0449998}
-      - {x: 2.215, y: -2.215}
-      - {x: 4.875, y: -2.175}
-      - {x: 4.9649997, y: -1.905}
+    - - {x: 4.97, y: -16.039999}
+      - {x: 4.63, y: -15.78}
+      - {x: 2.71, y: -15.139999}
+      - {x: 2.11, y: -15.139999}
+      - {x: 2.11, y: 18.42}
+      - {x: 1.39, y: 18.42}
+      - {x: -4.97, y: -15.719999}
+      - {x: -4.97, y: -16.72}
+      - {x: -4.5099998, y: -17.24}
+      - {x: -1.7099999, y: -18.4}
+      - {x: 1.55, y: -18.4}
+      - {x: 2.11, y: -17.74}
+      - {x: 4.65, y: -17.5}
+      - {x: 4.97, y: -17.24}
   m_UseDelaunayMesh: 1
+--- !u!50 &1399848713606132136
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719113965243838581}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

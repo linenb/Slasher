@@ -2,33 +2,28 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    public float fallSpeed = 5f;
-    private bool hitPlayer = false;
+    public float pixelsPerSecond = 5f; // VERY slow (try 1–10)
+    private Camera cam;
+    //private bool hitPlayer = false;
+
+    void Start()
+    {
+        cam = Camera.main;
+    }
+
     void Update()
     {
-        transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
-        // Destroy object when it goes off screen
-        if (transform.position.y < -6f)
-        {
-            if (!hitPlayer)
-            {
-                PointSystem.instance.AddPoint();
-            } 
-            else 
-            {
-                hitPlayer = false;
-            }
-            Destroy(gameObject);
-        }
+        // Convert pixels to world units
+        float unitsPerPixel = (cam.orthographicSize * 2f) / Screen.height;
+        float moveAmount = pixelsPerSecond * unitsPerPixel;
+        transform.position += Vector3.down * moveAmount * Time.deltaTime;
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Touched: " + other.gameObject.name + " | Tag: " + other.tag);
-
-        // Use object name instead of tag as a quick test
-        if (other.gameObject.name == "Square")
+        if (other.gameObject.name == "Character")
         {
-            hitPlayer = true;
+            //hitPlayer = true;
             PointSystem.instance.LosePoint();
             Destroy(gameObject);
         }

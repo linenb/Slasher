@@ -24,9 +24,17 @@ public class PointSystem : MonoBehaviour
         Debug.Log("Dodged! Points: " + points);
     }
 
-    public void LosePoint()
+public void LosePoint()
     {
         points--;
         Debug.Log("Hit! Points: " + points);
+       if (points < 0)
+{
+    GameManager gm = FindObjectOfType<GameManager>();
+    if (gm != null)
+        gm.TriggerGameOver();
+    else
+        Debug.LogWarning("GameManager not found!");
+}
     }
 }

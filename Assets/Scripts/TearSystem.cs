@@ -17,6 +17,7 @@ public class TearSystem : MonoBehaviour
 
     public int currency = 0;
     public int bottleCapacity = 10;
+    public int clickValue = 1;
 
     float timer;
 
@@ -88,8 +89,7 @@ public class TearSystem : MonoBehaviour
     {
         if (currency <= 0) return;
 
-        Debug.Log("Bottle clicked!");
-        scoreManager.AddScore(currency);
+        TearScoreManager.instance.Add(currency * clickValue);
 
         currency = 0;
 

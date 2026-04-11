@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    public float pixelsPerSecond = 5f; // VERY slow (try 1�10)
+    public float pixelsPerSecond = 5f; // VERY slow (try 1–10)
+
     private Camera cam;
-    //private bool hitPlayer = false;
+
     public float liftForce = 2f;
+
     private bool goingUp = false;
 
     public void PullUp()
@@ -20,19 +22,31 @@ public class FallingObject : MonoBehaviour
 
     void Update()
     {
-        // Convert pixels to world units
-        float unitsPerPixel = (Camera.main.orthographicSize * 2f) / Screen.height;
-        float moveAmount = pixelsPerSecond * unitsPerPixel;
+        // Gauti multiplierius (saugiai)
+        float fallMult = 1f;
+        float liftMult = 1f;
 
-        // Always falling
+        if (FallingObjectManager.instance != null)
+        {
+            fallMult = FallingObjectManager.instance.speedMultiplier;
+            liftMult = FallingObjectManager.instance.liftMultiplier;
+        }
+
+        // Clamp (apsauga nuo per didelio greičio)
+        fallMult = Mathf.Clamp(fallMult, 0.2f, 2f);
+        liftMult = Mathf.Clamp(liftMult, 0.2f, 3f);
+
+        // Convert pixels to world units
+        float unitsPerPixel = (cam.orthographicSize * 2f) / Screen.height;
+
+        // FALL (su multiplier)
+        float moveAmount = pixelsPerSecond * fallMult * unitsPerPixel;
         transform.position += Vector3.down * moveAmount * Time.deltaTime;
 
-        // If rope pulled, move up
+        // LIFT (su multiplier)
         if (goingUp)
         {
-            transform.position += Vector3.up * liftForce * Time.deltaTime;
-
-            // stop after small lift
+            transform.position += Vector3.up * liftForce * liftMult * Time.deltaTime;
             goingUp = false;
         }
     }
@@ -41,10 +55,8 @@ public class FallingObject : MonoBehaviour
     {
         if (other.gameObject.name == "Character")
         {
-            //hitPlayer = true;
             PointSystem.instance.LosePoint();
             pixelsPerSecond = 0;
-            //Destroy(gameObject);
         }
     }
 }

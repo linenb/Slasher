@@ -46,11 +46,14 @@ public class GameManager : MonoBehaviour
                 ui.ShowFinalScore(tearScoreManager.score);
         }
     }
-
+    
     public void RestartGame()
     {
         // Resume time before reloading
         Time.timeScale = 1f;
+
+        UpgradeRuntimeData.instance.ResetAll();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public GameObject gameOverPanel;           // The full Game Over UI panel
     public TearScoreManager tearScoreManager;  // To read final tear count
+    public TearSystem tearSystem;
 
     private bool isGameOver = false;
 
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
 
             GameOverUI ui = gameOverPanel.GetComponent<GameOverUI>();
             if (ui != null && tearScoreManager != null)
-                ui.ShowFinalScore(tearScoreManager.score);
+                ui.ShowFinalScore(tearScoreManager.score + tearSystem.currency);
         }
     }
     

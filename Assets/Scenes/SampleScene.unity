@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoxClick
   tearSystem: {fileID: 1835879278}
+  xpPerTear: 1
 --- !u!1 &68937489
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TearScoreManager
   score: 0
   pointText: {fileID: 1992072110}
-  tearSystem: {fileID: 0}
+  tearSystem: {fileID: 1835879278}
 --- !u!4 &527101920
 Transform:
   m_ObjectHideFlags: 0
@@ -2681,7 +2682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameOverPanel: {fileID: 403824529}
-  tearScoreManager: {fileID: 0}
+  tearScoreManager: {fileID: 527101919}
+  tearSystem: {fileID: 1835879278}
 --- !u!4 &1365495447
 Transform:
   m_ObjectHideFlags: 0

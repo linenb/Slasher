@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 055aeb7b177e17141906f18450a796d5, type: 3}
-  m_Name: upgradepvz2
+  m_Name: TearValueUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: aaaaa
-  description: nzn
-  baseCost: 2
+  upgradeName: Tear Value
+  description: Increase click value of a tear
+  Bottle: {fileID: 0}
+  baseCost: 200
   costMultiplier: 5
-  maxLevel: 2
+  maxLevel: 10
   bottleCapacityIncrease: 0
-  spawnSpeedMultiplier: 3
-  clickValueIncrease: 2
+  spawnSpeedMultiplier: 0
+  clickValueIncrease: 0
   fallingSpeedMultiplier: 0
   liftSpeedMultiplier: 0

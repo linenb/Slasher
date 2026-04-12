@@ -5,6 +5,7 @@ public class UpgradeData : ScriptableObject
 {
     public string upgradeName;
     [TextArea] public string description;
+    public GameObject Bottle;
 
     public int baseCost;
     public float costMultiplier = 1.5f;

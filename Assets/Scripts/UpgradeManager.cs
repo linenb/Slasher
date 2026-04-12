@@ -44,7 +44,10 @@ public class UpgradeManager : MonoBehaviour
         // bottle size
         if (data.bottleCapacityIncrease > 0)
         {
-            tearSystem.bottleCapacity += data.bottleCapacityIncrease;
+            tearSystem.bottleCapacity += tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * UpgradeRuntimeData.instance.GetLevel(data);
+            GameObject bottle = GameObject.Find("Bottle");
+            bottle.transform.localScale += Vector3.one * 0.05f;
+            bottle.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
         }
 
         // spawn speed
@@ -62,7 +65,7 @@ public class UpgradeManager : MonoBehaviour
         // knife speed
         if (data.fallingSpeedMultiplier > 0)
         {
-            FallingObjectManager.instance.speedMultiplier /= data.fallingSpeedMultiplier;
+            FallingObjectManager.instance.speedMultiplier += FallingObjectManager.instance.speedMultiplier*data.fallingSpeedMultiplier;
         }
 
         if (data.liftSpeedMultiplier > 0)

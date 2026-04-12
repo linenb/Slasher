@@ -21,6 +21,7 @@ public class TearSystem : MonoBehaviour
     public int currency = 0;
     public int bottleCapacity = 10;
     public int clickValue = 1;
+    public int xpPerTear = 1;
 
     float timer;
 
@@ -57,6 +58,8 @@ public class TearSystem : MonoBehaviour
 
         UpdateBottle();
         UpdateText();
+        if (XPSystem.instance != null)
+            XPSystem.instance.AddXP(amount * xpPerTear);
     }
 
     void UpdateBottle()

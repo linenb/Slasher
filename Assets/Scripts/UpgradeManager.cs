@@ -41,36 +41,51 @@ public class UpgradeManager : MonoBehaviour
 
     void ApplyUpgrade(UpgradeData data)
     {
-        // bottle size
+        int level = UpgradeRuntimeData.instance.GetLevel(data);
+
+        // Bottle size
         if (data.bottleCapacityIncrease > 0)
         {
-            tearSystem.bottleCapacity += tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * UpgradeRuntimeData.instance.GetLevel(data);
+            tearSystem.bottleCapacity +=
+                tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * level;
+
             GameObject bottle = GameObject.Find("Bottle");
-            bottle.transform.localScale += Vector3.one * 0.05f;
-            bottle.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+            if (bottle != null)
+            {
+                bottle.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            }
         }
-        if(data.goldenTear)
+
+        // Golden tear chance
+        if (data.goldenTear)
         {
             tearSystem.goldenTearChance += 0.05f;
         }
-        // spawn speed
+
+        // Spawn speed (faster spawning)
         if (data.spawnSpeedMultiplier > 0)
         {
             tearSystem.spawnInterval /= data.spawnSpeedMultiplier;
         }
 
-        // click value
+        // Click value
         if (data.clickValueIncrease > 0)
         {
             tearSystem.clickValue += data.clickValueIncrease;
         }
 
-        // knife speed
+        // Knife fall speed (SLOW DOWN FIXED)
         if (data.fallingSpeedMultiplier > 0)
         {
-            FallingObjectManager.instance.speedMultiplier += FallingObjectManager.instance.speedMultiplier*data.fallingSpeedMultiplier;
+            FallingObjectManager.instance.speedMultiplier = Mathf.Max(
+                0.2f,
+                FallingObjectManager.instance.speedMultiplier * (1f - data.fallingSpeedMultiplier)
+            );
+
+            Debug.Log("New fall speed multiplier: " + FallingObjectManager.instance.speedMultiplier);
         }
 
+        // Lift speed
         if (data.liftSpeedMultiplier > 0)
         {
             FallingObjectManager.instance.liftMultiplier *= data.liftSpeedMultiplier;

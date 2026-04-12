@@ -49,13 +49,17 @@ public class FallingObject : MonoBehaviour
             transform.position += Vector3.up * liftForce * liftMult * Time.deltaTime;
             goingUp = false;
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Character")
         {
-            PointSystem.instance.LosePoint();
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.TriggerGameOver();
+            }
             pixelsPerSecond = 0;
         }
     }

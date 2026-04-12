@@ -12,6 +12,7 @@ public class TearSystem : MonoBehaviour
     public GameObject popupPrefab;
     public Canvas canvas;
     public TearScoreManager scoreManager;
+    public GameObject clickTearPrefab;
 
 
     public float goldenTearChance = 0f;
@@ -103,5 +104,16 @@ public class TearSystem : MonoBehaviour
 
         UpdateBottle();
         UpdateText();
+    }
+
+    public void SpawnClickTear()
+    {
+        GameObject tear = Instantiate(clickTearPrefab, eyePoint.position, Quaternion.identity);
+
+        ClickTear clickTear = tear.GetComponent<ClickTear>();
+
+        bool isGolden = Random.value < goldenTearChance;
+
+        clickTear.Init(isGolden);
     }
 }

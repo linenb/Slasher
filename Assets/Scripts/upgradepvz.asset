@@ -17,8 +17,9 @@ MonoBehaviour:
   baseCost: 10
   costMultiplier: 1.5
   maxLevel: 10
+  goldenTear: 0
   bottleCapacityIncrease: 5
   spawnSpeedMultiplier: 10
   clickValueIncrease: 1
-  fallingSpeedMultiplier: 2
+  fallingSpeedMultiplier: 0.2
   liftSpeedMultiplier: 4

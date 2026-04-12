@@ -13,6 +13,9 @@ public class TearSystem : MonoBehaviour
     public Canvas canvas;
     public TearScoreManager scoreManager;
 
+
+    public float goldenTearChance = 0f;
+
     public float spawnInterval = 3f;
 
     public int currency = 0;
@@ -27,6 +30,7 @@ public class TearSystem : MonoBehaviour
 
         if (timer >= spawnInterval)
         {
+
             TrySpawnTear();
             timer = 0f;
         }
@@ -39,6 +43,10 @@ public class TearSystem : MonoBehaviour
         GameObject tear = Instantiate(tearPrefab, eyePoint.position, Quaternion.identity);
 
         Tear tearScript = tear.GetComponent<Tear>();
+
+        bool isGolden = Random.value < goldenTearChance;
+
+        tearScript.isGolden = isGolden;
         tearScript.target = bottlePoint;
         tearScript.system = this;
     }

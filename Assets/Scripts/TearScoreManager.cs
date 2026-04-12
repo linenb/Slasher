@@ -7,6 +7,7 @@ public class TearScoreManager : MonoBehaviour
 
     public int score = 0;
     public TextMeshProUGUI pointText;
+    public TearSystem tearSystem;
 
     void Awake()
     {

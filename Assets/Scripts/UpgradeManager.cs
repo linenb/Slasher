@@ -49,7 +49,10 @@ public class UpgradeManager : MonoBehaviour
             bottle.transform.localScale += Vector3.one * 0.05f;
             bottle.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
         }
-
+        if(data.goldenTear)
+        {
+            tearSystem.goldenTearChance += 0.05f;
+        }
         // spawn speed
         if (data.spawnSpeedMultiplier > 0)
         {

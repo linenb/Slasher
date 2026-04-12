@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class FoxClick : MonoBehaviour
 {
     public TearSystem tearSystem;
+    public int xpPerTear = 1;
 
     void Update()
     {
@@ -30,6 +31,8 @@ public class FoxClick : MonoBehaviour
 
         // Give points instantly
         TearScoreManager.instance.Add(value);
+        if (XPSystem.instance != null)
+            XPSystem.instance.AddXP(value * xpPerTear);
 
         // Slight randomness for popup position
         Vector3 offset = new Vector3(

@@ -6,6 +6,9 @@ public class GameOverUI : MonoBehaviour
     [Header("Tears Score Display")]
     public TextMeshProUGUI totalTearsText;   // Text inside the card/panel below the GIF
 
+    [Header("Level Display")]
+    public TextMeshProUGUI totalXPText;   // Text inside the card/panel below the GIF
+
     [Header("Animators")]
     public SpriteAnimator gameOverAnimator;  // Animator for the game over GIF
     public SpriteAnimator restartAnimator;   // Animator for the restart button GIF
@@ -30,6 +33,15 @@ public class GameOverUI : MonoBehaviour
     {
         if (totalTearsText != null)
             totalTearsText.text = "Tears collected: " + tears;
+    }
+
+    /// <summary>
+    /// Called by GameManager with the final tear count.
+    /// </summary>
+    public void ShowFinalXP(int xp)
+    {
+        if (totalXPText != null)
+            totalXPText.text = "Final level: " + xp;
     }
 
     /// <summary>

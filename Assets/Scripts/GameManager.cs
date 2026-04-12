@@ -44,7 +44,10 @@ public class GameManager : MonoBehaviour
 
             GameOverUI ui = gameOverPanel.GetComponent<GameOverUI>();
             if (ui != null && tearScoreManager != null)
+            {
                 ui.ShowFinalScore(tearScoreManager.score + tearSystem.currency);
+                ui.ShowFinalXP(XPSystem.instance.currentLevel);
+            }
         }
     }
     

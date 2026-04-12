@@ -212,6 +212,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5de89e41072237d419b03b53092742a7, type: 2}
   - {fileID: 11400000, guid: 83975d07464c1554195515a798797605, type: 2}
   - {fileID: 11400000, guid: b48947b69a809e645abf02be62733346, type: 2}
+  - {fileID: 11400000, guid: 26c5eed20af6f964383c6c2cd67f94b9, type: 2}
+  - {fileID: 11400000, guid: c0c923ec0fb2ceb4f85fbadba862f7d4, type: 2}
   upgradePrefab: {fileID: 5240980450475031665, guid: fac3027a36eb01d46abfb53cf93f52ea, type: 3}
   container: {fileID: 26387127}
 --- !u!114 &26387131
@@ -752,6 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TearScoreManager
   score: 0
   pointText: {fileID: 1992072110}
+  tearSystem: {fileID: 0}
 --- !u!4 &527101920
 Transform:
   m_ObjectHideFlags: 0
@@ -2439,6 +2442,7 @@ MonoBehaviour:
   popupPrefab: {fileID: 2007424743959227025, guid: 2f9e46d4c48f9f64982202e2d9e875e6, type: 3}
   canvas: {fileID: 1302186683}
   scoreManager: {fileID: 527101919}
+  goldenTearChance: 0
   spawnInterval: 2
   currency: 0
   bottleCapacity: 10

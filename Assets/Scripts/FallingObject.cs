@@ -51,16 +51,20 @@ public class FallingObject : MonoBehaviour
         }
 
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Character")
+        if (other.CompareTag("Character"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.TriggerGameOver();
-            }
-            pixelsPerSecond = 0;
+        Debug.Log("HIT!");
+
+        pixelsPerSecond = 0;
+
+        AnimalDeathAnimation death = other.GetComponent<AnimalDeathAnimation>();
+
+        if (death != null)
+        {
+        death.PlayDeath();
+        }
         }
     }
 }

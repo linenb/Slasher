@@ -299,9 +299,11 @@ GameObject:
   - component: {fileID: 63686860}
   - component: {fileID: 63686863}
   - component: {fileID: 63686864}
+  - component: {fileID: 63686866}
+  - component: {fileID: 63686867}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Square
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,6 +442,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoxClick
   tearSystem: {fileID: 1835879278}
   xpPerTear: 1
+--- !u!50 &63686866
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63686859}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &63686867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63686859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6031b4e0ed0b57f40907717cce8d6db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimalDeathAnimation
+  deathFrames:
+  - {fileID: 21300000, guid: 34fc55267b8578d4dbf014dc67e65f68, type: 3}
+  - {fileID: 21300000, guid: 145a5b16a3e6f7d4fb9f2f804281dbf7, type: 3}
+  - {fileID: 21300000, guid: b62785122233ef2439dc56ca938d6dd0, type: 3}
+  - {fileID: 21300000, guid: 9ffd18d2143910c40a4c54bed1efebce, type: 3}
+  - {fileID: 21300000, guid: 8b3bd48d6e3075647b27094e70cd1537, type: 3}
+  - {fileID: 21300000, guid: 6056e7e14b380224c8abff93bf31eda1, type: 3}
+  - {fileID: 21300000, guid: 9630bf6ee7a83734396dee1a3ccadddf, type: 3}
+  - {fileID: 21300000, guid: 7c600adc9cee3474dade0b74a5a11737, type: 3}
+  - {fileID: 21300000, guid: 4ea88e1e6b2d50643b19a7f310106f3a, type: 3}
+  - {fileID: 21300000, guid: 88232cb1bfe30f7438fa8f76b222e2b6, type: 3}
+  - {fileID: 21300000, guid: d5e3b67507a0a324791cac7c4f91fd80, type: 3}
+  - {fileID: 21300000, guid: b11c6a4d0b1ed5540885b4209c687cf7, type: 3}
+  - {fileID: 21300000, guid: fc5da177b76780842acd6fba3922381b, type: 3}
+  - {fileID: 21300000, guid: 8e3c5327ca71ef04294c4931fc76b711, type: 3}
+  - {fileID: 21300000, guid: 09b2ebb721489ab468c684a252102d13, type: 3}
+  - {fileID: 21300000, guid: cf61aa17c8c6c7c4f8f2cf724c71a9b3, type: 3}
+  - {fileID: 21300000, guid: 14cdaf097ac7e9e499806b7d615c9471, type: 3}
+  - {fileID: 21300000, guid: b44ffb0a2fc4f4b4888e1f22f5ebe863, type: 3}
+  - {fileID: 21300000, guid: 86a2a2e171a35214ca3a4e6747b83ba7, type: 3}
+  - {fileID: 21300000, guid: 3e3efe74b38763a4195593c8708a805d, type: 3}
+  - {fileID: 21300000, guid: 588f5db1f79640c4d956655fafee3db9, type: 3}
+  fps: 13
 --- !u!1 &68937489
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +539,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 0, y: 172}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &68937491
 MonoBehaviour:
@@ -897,8 +961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -139}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000011921, y: -200}
+  m_SizeDelta: {x: 350, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581424703
 MonoBehaviour:
@@ -1007,9 +1071,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
   frames:
-  - {fileID: 3430318607272651648, guid: 24810c456cc0113489f1186ff52b5c2e, type: 3}
-  - {fileID: 7766737776461646816, guid: 00612d5ccc23c3847bc52d6434b2cb71, type: 3}
-  - {fileID: -4762052264146541876, guid: f4f30597641da604a93ae940534e8294, type: 3}
+  - {fileID: 21300000, guid: bd076d272593cee44ab58e753e71b5e7, type: 3}
+  - {fileID: 21300000, guid: f48cb68e2a9412a4c8045087a59bf906, type: 3}
+  - {fileID: 21300000, guid: c15fe88cbb2f9264d83b4a2d4079729e, type: 3}
   fps: 3
   loop: 1
   playOnEnable: 1
@@ -3721,6 +3785,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1719113965243838581, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
       propertyPath: m_Name
+      value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719113965243838581, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
+      propertyPath: m_TagString
       value: Knife
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -63,8 +63,14 @@ public class FallingObject : MonoBehaviour
 
         if (death != null)
         {
-        death.PlayDeath();
-        }
+                death.PlayDeath();
+                GameObject[] knives = GameObject.FindGameObjectsWithTag("Knife");
+                Debug.Log("Rasta peilių: " + knives.Length); // ar randa?
+                foreach (GameObject knife in knives)
+                {
+                    Destroy(knife);
+                }
+            }
         }
     }
 }

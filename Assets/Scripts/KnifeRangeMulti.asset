@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055aeb7b177e17141906f18450a796d5, type: 3}
+  m_Name: KnifeRangeMulti
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeName: Knife range multiplier
+  description: "Paspaudus/nusipirkus upgrade peiliui b\u016Bnant arti lap\u0117s
+    grei\u010Diau renkasi a\u0161aros(pakei\u010Diamas reikiamas laikas nukristi
+    a\u0161arai, o ne jos vert\u0117). Nuo paprasto *1 pakeisti \u012F *x(tikt\u0173
+    prid\u0117ti +0.1, kadangi multiplikacija). Galima nusipirkti tik su u\u017Etektinai
+    a\u0161ar\u0173, gana brangus, tai prad\u0117ti 100 vert\u0117s, pakilti +100
+    kiekvien\u0105 nusipirkim\u0105."
+  baseCost: 100
+  costMultiplier: 2
+  linearCostIncrease: 100
+  maxLevel: 10
+  goldenTear: 0
+  bottleCapacityIncrease: 0
+  spawnSpeedMultiplier: 0
+  clickValueIncrease: 0
+  fallingSpeedMultiplier: 0
+  liftSpeedMultiplier: 0
+  tearsPerSpawnIncrease: 0
+  tearSpeedMultiplierIncrease: 0.1

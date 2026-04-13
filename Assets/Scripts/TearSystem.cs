@@ -23,6 +23,10 @@ public class TearSystem : MonoBehaviour
     public int bottleCapacity = 10;
     public int clickValue = 1;
     public int xpPerTear = 1;
+    public int tearsPerSpawn = 1;
+
+    [Header("Proximity Speed Upgrade")]
+    public float tearSpeedMultiplier = 1f;
 
     float timer;
 
@@ -41,7 +45,13 @@ public class TearSystem : MonoBehaviour
     void TrySpawnTear()
     {
         if (currency >= bottleCapacity) return;
+         
+        bool knifeClose = KnifeDetector.instance != null && KnifeDetector.instance.KnifeIsClose;
+        float currentSpeed = knifeClose ? tearSpeedMultiplier : 1f;
+        Debug.Log($"Knife close: {knifeClose} | Speed multiplier: {currentSpeed}"); 
 
+        for(int i = 0; i < tearsPerSpawn; i++ )
+        {        
         GameObject tear = Instantiate(tearPrefab, eyePoint.position, Quaternion.identity);
 
         Tear tearScript = tear.GetComponent<Tear>();
@@ -51,6 +61,9 @@ public class TearSystem : MonoBehaviour
         tearScript.isGolden = isGolden;
         tearScript.target = bottlePoint;
         tearScript.system = this;
+        tearScript.speed *= currentSpeed;
+    
+        }
     }
 
     public void AddCurrency(int amount)

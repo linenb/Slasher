@@ -10,7 +10,13 @@ public class UpgradeButtonUI : MonoBehaviour
 
     public Button button;
 
+    [Header("Proximity Upgrade Extras (optional)")]
+    [Tooltip("Assign only for the proximity speed upgrade button")]
+    public TextMeshProUGUI proximityIndicatorText; 
+    public TextMeshProUGUI purchaseCountText;
+
     UpgradeData data;
+    bool isProximityUpgrade => data != null && data.tearSpeedMultiplierIncrease > 0;
 
     public void Setup(UpgradeData upgrade)
     {
@@ -47,16 +53,35 @@ public class UpgradeButtonUI : MonoBehaviour
 
         int level = UpgradeRuntimeData.instance.GetLevel(data);
         int cost = data.GetCost(level);
+        bool canAfford = TearScoreManager.instance.HasEnough(cost);
+        bool maxed = level >= data.maxLevel;
 
         button.interactable =
             TearScoreManager.instance.HasEnough(cost) &&
             level < data.maxLevel;
+ 
+        if (proximityIndicatorText != null && isProximityUpgrade)
+        {
+            bool knifeClose = KnifeDetector.instance != null &&
+                              KnifeDetector.instance.KnifeIsClose;
+ 
+            bool showIndicator = canAfford && knifeClose && !maxed;
+            proximityIndicatorText.gameObject.SetActive(showIndicator);
+            proximityIndicatorText.text = "⚡ ACTIVE";
+        }
+
+        if (purchaseCountText != null && isProximityUpgrade)
+        {
+            purchaseCountText.text = "Bought: " + level;
+        }
 
         Refresh();
     }
 
     void Refresh()
     {
+        if (data == null || UpgradeRuntimeData.instance == null) return;
+
         int level = UpgradeRuntimeData.instance.GetLevel(data);
 
         nameText.text = data.upgradeName;

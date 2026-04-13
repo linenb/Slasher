@@ -90,5 +90,16 @@ public class UpgradeManager : MonoBehaviour
         {
             FallingObjectManager.instance.liftMultiplier *= data.liftSpeedMultiplier;
         }
+        // Tears per spawn
+        if (data.tearsPerSpawnIncrease > 0)
+        {
+            tearSystem.tearsPerSpawn += data.tearsPerSpawnIncrease;
+        }
+        // Proximity tear speed boost
+        if (data.tearSpeedMultiplierIncrease > 0)
+        {
+            tearSystem.tearSpeedMultiplier += data.tearSpeedMultiplierIncrease;
+        }
     }
+            
 }

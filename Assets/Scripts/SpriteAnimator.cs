@@ -50,7 +50,7 @@ public class SpriteAnimator : MonoBehaviour
             return;
         }
 
-        Stop(); // Stop any existing coroutine before starting a new one
+        Stop(); 
         animationCoroutine = StartCoroutine(Animate());
     }
 
@@ -75,11 +75,9 @@ public class SpriteAnimator : MonoBehaviour
 
             if (currentFrame >= frames.Length)
             {
-                if (!loop) yield break; // Stop after one cycle if not looping
+                if (!loop) yield break; 
                 currentFrame = 0;
             }
-
-            // Use unscaled time so animation still plays when Time.timeScale = 0
             yield return new WaitForSecondsRealtime(delay);
         }
     }

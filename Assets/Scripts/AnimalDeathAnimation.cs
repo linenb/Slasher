@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class AnimalDeathAnimation : MonoBehaviour
 {
-    public Sprite[] deathFrames;   // your GIF frames
+    public Sprite[] deathFrames;  
     public float fps = 12f;
 
     private SpriteRenderer sr;

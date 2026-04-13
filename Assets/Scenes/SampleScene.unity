@@ -214,6 +214,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b48947b69a809e645abf02be62733346, type: 2}
   - {fileID: 11400000, guid: 26c5eed20af6f964383c6c2cd67f94b9, type: 2}
   - {fileID: 11400000, guid: c0c923ec0fb2ceb4f85fbadba862f7d4, type: 2}
+  - {fileID: 11400000, guid: bb9d33277a8bd184983ecd6be7a7dbe0, type: 2}
+  - {fileID: 11400000, guid: cf13156fd0fab5a45865974f5b1466e1, type: 2}
   upgradePrefab: {fileID: 5240980450475031665, guid: fac3027a36eb01d46abfb53cf93f52ea, type: 3}
   container: {fileID: 390077320}
 --- !u!114 &26387131
@@ -3529,6 +3531,8 @@ MonoBehaviour:
   bottleCapacity: 10
   clickValue: 1
   xpPerTear: 1
+  tearsPerSpawn: 1
+  tearSpeedMultiplier: 1
 --- !u!4 &1835879279
 Transform:
   m_ObjectHideFlags: 0
@@ -3779,6 +3783,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923547011}
   m_CullTransparentMesh: 1
+--- !u!1 &1941371558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1941371560}
+  - component: {fileID: 1941371559}
+  m_Layer: 0
+  m_Name: KnifeDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1941371559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941371558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08b878bb7c0464499d25d03de53b5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnifeDetector
+  foxTransform: {fileID: 63686861}
+  proximityThreshold: 10
+--- !u!4 &1941371560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941371558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.98143, y: -0.70597, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1950697971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4339,3 +4389,4 @@ SceneRoots:
   - {fileID: 531669857}
   - {fileID: 1076885542}
   - {fileID: 1862614450}
+  - {fileID: 1941371560}

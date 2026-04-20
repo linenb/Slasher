@@ -7,6 +7,15 @@ public class FallingObjectManager : MonoBehaviour
     public float speedMultiplier = 1f; // fall
     public float liftMultiplier = 1f;  // lift
 
+    public float baseSpeedMultiplier = 1f;
+    public float baseLiftMultiplier = 1f;
+
+    public void ResetToBase()
+    {
+        speedMultiplier = baseSpeedMultiplier;
+        liftMultiplier = baseLiftMultiplier;
+    }
+
     void Awake()
     {
         instance = this;

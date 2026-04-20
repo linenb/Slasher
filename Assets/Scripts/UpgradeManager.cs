@@ -6,9 +6,23 @@ public class UpgradeManager : MonoBehaviour
 
     public TearSystem tearSystem;
 
+    private Vector3 originalBottleScale;
+    private Transform bottleTransform;
+
     void Awake()
     {
         instance = this;
+    }
+
+    void Start()
+    {
+        GameObject bottle = GameObject.Find("Bottle");
+
+        if (bottle != null)
+        {
+            bottleTransform = bottle.transform;
+            originalBottleScale = bottleTransform.localScale;
+        }
     }
 
     public void BuyUpgrade(UpgradeData data)
@@ -50,9 +64,9 @@ public class UpgradeManager : MonoBehaviour
                 tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * level;
 
             GameObject bottle = GameObject.Find("Bottle");
-            if (bottle != null)
+            if (bottleTransform != null)
             {
-                bottle.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                bottleTransform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
 
@@ -101,5 +115,18 @@ public class UpgradeManager : MonoBehaviour
             tearSystem.tearSpeedMultiplier += data.tearSpeedMultiplierIncrease;
         }
     }
-            
+
+
+    public void ResetAllEffects()
+    {
+        if (tearSystem != null)
+            tearSystem.ResetToBase();
+
+        if (FallingObjectManager.instance != null)
+            FallingObjectManager.instance.ResetToBase();
+
+        if (bottleTransform != null)
+            bottleTransform.localScale = originalBottleScale;
+    }
+
 }

@@ -81,4 +81,14 @@ public class XPSystem : MonoBehaviour
         if (tooltipPanel != null)
             tooltipPanel.SetActive(false);
     }
+
+    public void ResetProgress()
+    {
+        currentLevel = 1;
+        currentXP = 0;
+
+        UpdateUI();
+
+        Debug.Log("XP RESET");
+    }
 }

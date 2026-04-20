@@ -28,6 +28,14 @@ public class TearSystem : MonoBehaviour
     [Header("Proximity Speed Upgrade")]
     public float tearSpeedMultiplier = 1f;
 
+    [Header("Base Values (DO NOT CHANGE AT RUNTIME)")]
+    public float baseSpawnInterval = 3f;
+    public int baseBottleCapacity = 10;
+    public int baseClickValue = 1;
+    public float baseGoldenChance = 0f;
+    public int baseTearsPerSpawn = 1;
+    public float baseTearSpeedMultiplier = 1f;
+
     float timer;
 
     void Update()
@@ -48,7 +56,7 @@ public class TearSystem : MonoBehaviour
          
         bool knifeClose = KnifeDetector.instance != null && KnifeDetector.instance.KnifeIsClose;
         float currentSpeed = knifeClose ? tearSpeedMultiplier : 1f;
-        Debug.Log($"Knife close: {knifeClose} | Speed multiplier: {currentSpeed}"); 
+        //Debug.Log($"Knife close: {knifeClose} | Speed multiplier: {currentSpeed}"); 
 
         for(int i = 0; i < tearsPerSpawn; i++ )
         {        
@@ -131,5 +139,27 @@ public class TearSystem : MonoBehaviour
         bool isGolden = Random.value < goldenTearChance;
 
         clickTear.Init(isGolden);
+    }
+
+    public void ResetToBase()
+    {
+        spawnInterval = baseSpawnInterval;
+        bottleCapacity = baseBottleCapacity;
+        clickValue = baseClickValue;
+        goldenTearChance = baseGoldenChance;
+        tearsPerSpawn = baseTearsPerSpawn;
+        tearSpeedMultiplier = baseTearSpeedMultiplier;
+
+        currency = 0;
+
+        UpdateBottle();
+        UpdateText();
+    }
+
+    public static TearSystem instance;
+
+    void Awake()
+    {
+        instance = this;
     }
 }

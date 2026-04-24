@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager instance;
@@ -8,6 +7,10 @@ public class UpgradeManager : MonoBehaviour
 
     private Vector3 originalBottleScale;
     private Transform bottleTransform;
+    public SpriteRenderer characterSpriteRenderer;
+    public Sprite normalSprite;
+    public Sprite goldenSprite1;
+    public Sprite goldenSprite2;
 
     void Awake()
     {
@@ -74,6 +77,11 @@ public class UpgradeManager : MonoBehaviour
         if (data.goldenTear)
         {
             tearSystem.goldenTearChance += 0.05f;
+            characterSpriteRenderer.sprite = goldenSprite1;
+            if (level == data.maxLevel)
+            {
+                characterSpriteRenderer.sprite = goldenSprite2;
+            }
         }
 
         // Spawn speed (faster spawning)

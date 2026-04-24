@@ -378,8 +378,8 @@ Transform:
   m_GameObject: {fileID: 63686859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.12, z: 0}
-  m_LocalScale: {x: 0.5004126, y: 0.4730512, z: 0.42289576}
+  m_LocalPosition: {x: 0.7, y: 0.1156, z: 0}
+  m_LocalScale: {x: 0.52122974, y: 0.47182125, z: 0.42289576}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2564,6 +2564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FallingObjectManager
   speedMultiplier: 1
   liftMultiplier: 1
+  baseSpeedMultiplier: 1
+  baseLiftMultiplier: 1
 --- !u!4 &1076885542
 Transform:
   m_ObjectHideFlags: 0
@@ -3721,6 +3723,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
   tearSystem: {fileID: 1835879278}
+  characterSpriteRenderer: {fileID: 63686860}
+  normalSprite: {fileID: 1880952948382225030, guid: 3a53271964d6764409c2ea572d76e942, type: 3}
+  goldenSprite1: {fileID: -5788078366192659142, guid: 95a74a2d6f3b229428e2ac596359fe77, type: 3}
+  goldenSprite2: {fileID: -2561508284813000314, guid: c650027361b1ab3458920df1d4d26a99, type: 3}
 --- !u!4 &1698218376
 Transform:
   m_ObjectHideFlags: 0
@@ -3819,6 +3825,12 @@ MonoBehaviour:
   xpPerTear: 1
   tearsPerSpawn: 1
   tearSpeedMultiplier: 1
+  baseSpawnInterval: 3
+  baseBottleCapacity: 10
+  baseClickValue: 1
+  baseGoldenChance: 0
+  baseTearsPerSpawn: 1
+  baseTearSpeedMultiplier: 1
 --- !u!4 &1835879279
 Transform:
   m_ObjectHideFlags: 0

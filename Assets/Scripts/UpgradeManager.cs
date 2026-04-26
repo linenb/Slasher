@@ -65,11 +65,21 @@ public class UpgradeManager : MonoBehaviour
         {
             tearSystem.bottleCapacity +=
                 tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * level;
-
-            GameObject bottle = GameObject.Find("Bottle");
-            if (bottleTransform != null)
+            // LEVEL 1–3 just grow
+            if (level <= 3)
             {
-                bottleTransform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                if (bottleTransform != null)
+                {
+                    bottleTransform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                }
+            }
+
+            // LEVEL 4  switch to final bottle
+            if (level == 4)
+            {
+                tearSystem.bottleLevels = tearSystem.finalBottleLevels;
+
+                tearSystem.UpdateBottle();
             }
         }
 

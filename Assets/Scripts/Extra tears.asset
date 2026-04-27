@@ -18,11 +18,13 @@ MonoBehaviour:
     tik su u\u017Etektinai a\u0161ar\u0173."
   baseCost: 250
   costMultiplier: 3
+  linearCostIncrease: 0
   maxLevel: 10
   goldenTear: 0
   bottleCapacityIncrease: 0
   spawnSpeedMultiplier: 0
-  clickValueIncrease: 0
+  clickValueIncrease: 1
   fallingSpeedMultiplier: 0
   liftSpeedMultiplier: 0
   tearsPerSpawnIncrease: 1
+  tearSpeedMultiplierIncrease: 0

@@ -3270,7 +3270,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8541937740019344627, guid: 74cf0db10874fa645881afcac734b4f6, type: 3}
+  m_Sprite: {fileID: -6430410694633221584, guid: 9de79e484b9a24a44b77f3db20fa4085, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3333,7 +3333,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.78, y: 6.74}
+    oldSize: {x: 5.78, y: 8.98}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3807,11 +3807,11 @@ MonoBehaviour:
   bottlePoint: {fileID: 1276082599}
   bottleRenderer: {fileID: 1283789358}
   bottleLevels:
-  - {fileID: -8541937740019344627, guid: 74cf0db10874fa645881afcac734b4f6, type: 3}
-  - {fileID: 6798651939426467042, guid: b6b14d6dd6c3ba04d81013520f57cf8c, type: 3}
-  - {fileID: -6926562784561208882, guid: 39f052013b4241b4db3655abff6e2b99, type: 3}
-  - {fileID: -4639971258587910174, guid: 327d7671453538842adfd5d8796475f5, type: 3}
-  - {fileID: 4817137996689209469, guid: c82a4e962906f9441a69557642a6f74b, type: 3}
+  - {fileID: -6430410694633221584, guid: 9de79e484b9a24a44b77f3db20fa4085, type: 3}
+  - {fileID: -8494857793865610526, guid: 30dae408ed0414d6cb88c6a27004c933, type: 3}
+  - {fileID: 7954575601441278723, guid: 16fdaf4a7f6d64adf88c6b2cbd582829, type: 3}
+  - {fileID: -1773026619194971556, guid: 66c623eb12a3843b4819a95033e0624a, type: 3}
+  - {fileID: 5753045350799394352, guid: 5a530db32a6aa45718215fd23566ecb4, type: 3}
   bottleText: {fileID: 1088374631}
   popupPrefab: {fileID: 2007424743959227025, guid: 2f9e46d4c48f9f64982202e2d9e875e6, type: 3}
   canvas: {fileID: 1302186683}

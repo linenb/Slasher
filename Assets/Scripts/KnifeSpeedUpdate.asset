@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Lighter knife
   description: Makes knife move a bit slower
-  Bottle: {fileID: 0}
   baseCost: 50
   costMultiplier: 2
+  linearCostIncrease: 0
   maxLevel: 10
+  goldenTear: 0
   bottleCapacityIncrease: 0
   spawnSpeedMultiplier: 0
   clickValueIncrease: 0
-  fallingSpeedMultiplier: 0.02
+  fallingSpeedMultiplier: 0.5
   liftSpeedMultiplier: 0
+  tearsPerSpawnIncrease: 0
+  tearSpeedMultiplierIncrease: 0

@@ -10,6 +10,8 @@ public class FallingObject : MonoBehaviour
 
     private bool goingUp = false;
 
+    public float topOffset = 4f;
+
     public void PullUp()
     {
         goingUp = true;
@@ -50,6 +52,12 @@ public class FallingObject : MonoBehaviour
             goingUp = false;
         }
 
+        // TOP CLAMP
+        float top = cam.transform.position.y + cam.orthographicSize + topOffset;
+
+        Vector3 pos = transform.position;
+        pos.y = Mathf.Min(pos.y, top);
+        transform.position = pos;
     }
     void OnTriggerEnter2D(Collider2D other)
     {

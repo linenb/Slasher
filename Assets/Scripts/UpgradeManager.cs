@@ -69,7 +69,7 @@ public class UpgradeManager : MonoBehaviour
             GameObject bottle = GameObject.Find("Bottle");
             if (bottleTransform != null)
             {
-                bottleTransform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                bottleTransform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
             }
         }
 

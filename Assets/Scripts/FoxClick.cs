@@ -22,7 +22,7 @@ public class FoxClick : MonoBehaviour
 
     void OnFoxClicked()
     {
-        int value = 1;
+        int value = tearSystem.clickValue;;
 
         bool isGolden = Random.value < tearSystem.goldenTearChance;
 

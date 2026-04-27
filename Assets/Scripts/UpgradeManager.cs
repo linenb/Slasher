@@ -93,7 +93,7 @@ public class UpgradeManager : MonoBehaviour
         // Click value
         if (data.clickValueIncrease > 0)
         {
-            tearSystem.clickValue += data.clickValueIncrease;
+            tearSystem.clickValue = (int)Mathf.Pow(2, level);
         }
 
         // Knife fall speed (SLOW DOWN FIXED)

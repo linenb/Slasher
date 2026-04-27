@@ -2361,6 +2361,7 @@ MonoBehaviour:
   pullDistance: 20
   pullSpeed: 10
   knife: {fileID: 1623178571}
+  clickSound: {fileID: 8300000, guid: b66917d50f6084f479bc6e4901d22bed, type: 3}
 --- !u!114 &1038337736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3884,6 +3885,11 @@ MonoBehaviour:
   xpText: {fileID: 1190592945}
   tooltipPanel: {fileID: 2043665567}
   tooltipText: {fileID: 923576149}
+  characterRenderer: {fileID: 63686860}
+  characterSprites:
+  - {fileID: 8892016170306490366, guid: 164f777e0889aad4ab75804038224fe7, type: 3}
+  - {fileID: 6711556293439561898, guid: 8d5f10b63a320694890a63313f5a7fa9, type: 3}
+  - {fileID: -3789718530673972641, guid: a40393e7cea1a3f4485408acf584de40, type: 3}
 --- !u!4 &1862614450
 Transform:
   m_ObjectHideFlags: 0

@@ -17,6 +17,10 @@ public class XPSystem : MonoBehaviour
     public GameObject tooltipPanel;
     public TextMeshProUGUI tooltipText;
 
+    [Header("Character Sprites")]
+    public SpriteRenderer characterRenderer;
+    public Sprite[] characterSprites; // Assign in Inspector: sprite for tier 0, 1, 2...
+
     void Awake()
     {
         instance = this;
@@ -39,6 +43,8 @@ public class XPSystem : MonoBehaviour
 
     public void AddXP(int amount)
     {
+        int tierBefore = (currentLevel - 1) / 33;
+
         currentXP += amount;
 
         while (currentXP >= GetXPRequired(currentLevel))
@@ -47,7 +53,23 @@ public class XPSystem : MonoBehaviour
             currentLevel++;
         }
 
+        int tierAfter = (currentLevel - 1) / 33;
+
+        if (tierAfter != tierBefore)
+        {
+            UpdateCharacterSprite(tierAfter);
+        }
+
         UpdateUI();
+    }
+
+    void UpdateCharacterSprite(int tier)
+    {
+        if (characterRenderer == null || characterSprites == null) return;
+
+        // Clamp so we don't go out of bounds if player exceeds all defined tiers
+        int index = Mathf.Min(tier, characterSprites.Length - 1);
+        characterRenderer.sprite = characterSprites[index];
     }
 
     void UpdateUI()

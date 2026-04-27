@@ -65,7 +65,7 @@ public class DebugController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            XPSystem.instance?.AddXP(50);
+            XPSystem.instance?.AddXP(5000);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
@@ -88,7 +88,7 @@ public class DebugController : MonoBehaviour
                 "[G] Game Over\n" +
                 "[R] Restart Game\n" +
                 "[U] Reset Upgrades\n" +
-                "[X] +50 XP\n" +
+                "[X] +5000 XP\n" +
                 "[L] Reset XP";
         }
     }

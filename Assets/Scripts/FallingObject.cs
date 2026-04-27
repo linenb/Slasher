@@ -28,6 +28,11 @@ public class FallingObject : MonoBehaviour
         float fallMult = 1f;
         float liftMult = 1f;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PullUp();
+        }
+
         if (FallingObjectManager.instance != null)
         {
             fallMult = FallingObjectManager.instance.speedMultiplier;

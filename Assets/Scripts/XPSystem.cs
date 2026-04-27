@@ -44,6 +44,7 @@ public class XPSystem : MonoBehaviour
     public void AddXP(int amount)
     {
         int tierBefore = (currentLevel - 1) / 33;
+        int levelBefore = currentLevel; // track level before XP added
 
         currentXP += amount;
 
@@ -51,6 +52,12 @@ public class XPSystem : MonoBehaviour
         {
             currentXP -= GetXPRequired(currentLevel);
             currentLevel++;
+        }
+
+        // If leveled up, increase fall speed
+        if (currentLevel > levelBefore)
+        {
+            UpdateFallSpeed();
         }
 
         int tierAfter = (currentLevel - 1) / 33;
@@ -61,6 +68,14 @@ public class XPSystem : MonoBehaviour
         }
 
         UpdateUI();
+    }
+
+    void UpdateFallSpeed()
+    {
+        if (FallingObjectManager.instance == null) return;
+
+        // Increases speed by 10% per level, capped at the clamp limit of 2x in FallingObject.cs
+        FallingObjectManager.instance.speedMultiplier = 1f + (currentLevel - 1) * 0.05f;
     }
 
     void UpdateCharacterSprite(int tier)

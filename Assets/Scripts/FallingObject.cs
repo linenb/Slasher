@@ -33,7 +33,7 @@ public class FallingObject : MonoBehaviour
         }
 
         // Clamp (apsauga nuo per didelio greičio)
-        fallMult = Mathf.Clamp(fallMult, 0.2f, 2f);
+        fallMult = Mathf.Max(fallMult, 0.2f); // keeps the lower bound, removes upper cap
         liftMult = Mathf.Clamp(liftMult, 0.2f, 3f);
 
         // Convert pixels to world units

@@ -10,6 +10,8 @@ public class FallingObject : MonoBehaviour
 
     private bool goingUp = false;
 
+    public float topOffset = 4f;
+
     public void PullUp()
     {
         goingUp = true;
@@ -26,6 +28,11 @@ public class FallingObject : MonoBehaviour
         float fallMult = 1f;
         float liftMult = 1f;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PullUp();
+        }
+
         if (FallingObjectManager.instance != null)
         {
             fallMult = FallingObjectManager.instance.speedMultiplier;
@@ -33,7 +40,7 @@ public class FallingObject : MonoBehaviour
         }
 
         // Clamp (apsauga nuo per didelio greičio)
-        fallMult = Mathf.Clamp(fallMult, 0.2f, 2f);
+        fallMult = Mathf.Max(fallMult, 0.2f); // keeps the lower bound, removes upper cap
         liftMult = Mathf.Clamp(liftMult, 0.2f, 3f);
 
         // Convert pixels to world units
@@ -50,6 +57,12 @@ public class FallingObject : MonoBehaviour
             goingUp = false;
         }
 
+        // TOP CLAMP
+        float top = cam.transform.position.y + cam.orthographicSize + topOffset;
+
+        Vector3 pos = transform.position;
+        pos.y = Mathf.Min(pos.y, top);
+        transform.position = pos;
     }
     void OnTriggerEnter2D(Collider2D other)
     {

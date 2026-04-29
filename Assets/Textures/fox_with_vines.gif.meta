@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1cdb1bf2782245e469b73ddb54c5f75d
+guid: 8d5f10b63a320694890a63313f5a7fa9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8508699417033592472
-    second: placeholder_noose_0
+      213: 6711556293439561898
+    second: fox_with_vines_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: placeholder_noose_0
+      name: fox_with_vines_0
       rect:
         serializedVersion: 2
-        x: 308
+        x: 271
         y: 0
-        width: 408
-        height: 2048
+        width: 738
+        height: 737
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89e4cdce909f41670800000000000000
-      internalID: 8508699417033592472
+      spriteID: aa0a088b3ec342d50800000000000000
+      internalID: 6711556293439561898
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      placeholder_noose_0: 8508699417033592472
+      fox_with_vines_0: 6711556293439561898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,7 +8,6 @@ public class TearSystem : MonoBehaviour
     public Transform bottlePoint;
     public SpriteRenderer bottleRenderer;
     public Sprite[] bottleLevels;
-    public Sprite[] finalBottleLevels;
     public TextMeshProUGUI bottleText;
     public GameObject popupPrefab;
     public Canvas canvas;
@@ -85,7 +84,7 @@ public class TearSystem : MonoBehaviour
             XPSystem.instance.AddXP(amount * xpPerTear);
     }
 
-    public void UpdateBottle()
+    void UpdateBottle()
     {
         float percent = (float)currency / bottleCapacity;
 
@@ -157,6 +156,46 @@ public class TearSystem : MonoBehaviour
         UpdateText();
     }
 
+    // =========================
+    // BAT MINIGAME SCALING
+    // =========================
+    public void BatScareExplosion()
+    {
+        if (XPSystem.instance == null) return;
+
+        int level = XPSystem.instance.currentLevel;
+
+        // LEVEL SCALING (smooth)
+        float levelFactor = Mathf.Sqrt(level);
+
+        // TIER BONUS (every 33 levels)
+        int tier = (level - 1) / 33;
+        float tierBonus = 1f + (tier * 0.5f);
+
+        // RANDOMNESS (juice)
+        float randomFactor = Random.Range(0.8f, 1.3f);
+
+        // FINAL TOTAL VALUE
+        int totalValue = Mathf.RoundToInt(
+            clickValue * 15 * levelFactor * tierBonus * randomFactor
+        );
+
+        int burstCount = 20;
+
+        for (int i = 0; i < burstCount; i++)
+        {
+            bool isGolden = Random.value < goldenTearChance;
+
+            int value = isGolden ? totalValue : totalValue / burstCount;
+
+            TearScoreManager.instance.Add(value);
+
+            GameObject tear = Instantiate(clickTearPrefab, eyePoint.position, Quaternion.identity);
+            tear.GetComponent<ClickTear>().Init(isGolden);
+
+            SpawnPopup(value, eyePoint.position);
+        }
+    }
 
     public static TearSystem instance;
 

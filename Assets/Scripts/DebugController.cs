@@ -10,6 +10,8 @@ public class DebugController : MonoBehaviour
     public TextMeshProUGUI debugText;
 
     private bool debugMode = false;
+    public BatSpawner batSpawner;
+    public SpiderSpawner spiderSpawner;
 
     void Awake()
     {
@@ -65,12 +67,22 @@ public class DebugController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            XPSystem.instance?.AddXP(50);
+            XPSystem.instance?.AddXP(5000);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
             XPSystem.instance?.ResetProgress();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            batSpawner?.ForceSpawnBat();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            spiderSpawner?.ForceSpawnSpider();
         }
     }
 
@@ -82,14 +94,16 @@ public class DebugController : MonoBehaviour
         if (debugText != null)
         {
             debugText.text =
-                "DEBUG MODE (Q to toggle)\n\n" +
-                "[T] +100 Tears\n" +
-                "[Y] +100 Bottle\n" +
-                "[G] Game Over\n" +
-                "[R] Restart Game\n" +
-                "[U] Reset Upgrades\n" +
-                "[X] +50 XP\n" +
-                "[L] Reset XP";
+    "DEBUG MODE (Q to toggle)\n\n" +
+    "[T] +100 Tears\n" +
+    "[Y] +100 Bottle\n" +
+    "[G] Game Over\n" +
+    "[R] Restart Game\n" +
+    "[U] Reset Upgrades\n" +
+    "[X] +5000 XP\n" +
+    "[L] Reset XP\n" +
+    "[B] Spawn Bat\n" +
+    "[N] Spawn Spider";
         }
     }
 }

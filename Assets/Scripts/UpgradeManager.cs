@@ -65,21 +65,11 @@ public class UpgradeManager : MonoBehaviour
         {
             tearSystem.bottleCapacity +=
                 tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * level;
-            // LEVEL 1–3 just grow
-            if (level <= 3)
-            {
-                if (bottleTransform != null)
-                {
-                    bottleTransform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
-                }
-            }
 
-            // LEVEL 4  switch to final bottle
-            if (level == 4)
+            GameObject bottle = GameObject.Find("Bottle");
+            if (bottleTransform != null)
             {
-                tearSystem.bottleLevels = tearSystem.finalBottleLevels;
-
-                tearSystem.UpdateBottle();
+                bottleTransform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
             }
         }
 
@@ -103,7 +93,7 @@ public class UpgradeManager : MonoBehaviour
         // Click value
         if (data.clickValueIncrease > 0)
         {
-            tearSystem.clickValue += data.clickValueIncrease;
+            tearSystem.clickValue = (int)Mathf.Pow(2, level);
         }
 
         // Knife fall speed (SLOW DOWN FIXED)

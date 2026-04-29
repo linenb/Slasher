@@ -8,6 +8,7 @@ public class TearSystem : MonoBehaviour
     public Transform bottlePoint;
     public SpriteRenderer bottleRenderer;
     public Sprite[] bottleLevels;
+    public Sprite[] finalBottleLevels;
     public TextMeshProUGUI bottleText;
     public GameObject popupPrefab;
     public Canvas canvas;
@@ -84,7 +85,7 @@ public class TearSystem : MonoBehaviour
             XPSystem.instance.AddXP(amount * xpPerTear);
     }
 
-    void UpdateBottle()
+    public void UpdateBottle()
     {
         float percent = (float)currency / bottleCapacity;
 

@@ -63,14 +63,26 @@ public class UpgradeManager : MonoBehaviour
         // Bottle size
         if (data.bottleCapacityIncrease > 0)
         {
-            tearSystem.bottleCapacity +=
-                tearSystem.bottleCapacity * 2 + data.bottleCapacityIncrease * level;
+            tearSystem.bottleCapacity += data.bottleCapacityIncrease * level;
 
-            GameObject bottle = GameObject.Find("Bottle");
-            if (bottleTransform != null)
+            if (bottleTransform == null) return;
+
+            float scaleIncrease = 0f;
+
+            if (level <= 3)
             {
-                bottleTransform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
+                scaleIncrease += 0.1f;
             }
+            else if (level == 4)
+            {
+                scaleIncrease -= 0.3f;
+                tearSystem.bottleLevels = tearSystem.finalBottleLevels;
+                tearSystem.UpdateBottle();
+            }
+
+                scaleIncrease += 0.01f;
+
+            bottleTransform.localScale += Vector3.one * scaleIncrease;
         }
 
         // Golden tear chance

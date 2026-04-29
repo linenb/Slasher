@@ -3688,7 +3688,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6430410694633221584, guid: 9de79e484b9a24a44b77f3db20fa4085, type: 3}
+  m_Sprite: {fileID: -8541937740019344627, guid: 74cf0db10874fa645881afcac734b4f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3707,7 +3707,7 @@ Transform:
   m_GameObject: {fileID: 1283789357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3999999, y: -1.71, z: 0}
+  m_LocalPosition: {x: -3.52, y: -1.74, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3751,7 +3751,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.78, y: 8.98}
+    oldSize: {x: 5.78, y: 6.74}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4367,11 +4367,17 @@ MonoBehaviour:
   bottlePoint: {fileID: 1276082599}
   bottleRenderer: {fileID: 1283789358}
   bottleLevels:
-  - {fileID: -6430410694633221584, guid: 9de79e484b9a24a44b77f3db20fa4085, type: 3}
-  - {fileID: -8494857793865610526, guid: 30dae408ed0414d6cb88c6a27004c933, type: 3}
-  - {fileID: 7954575601441278723, guid: 16fdaf4a7f6d64adf88c6b2cbd582829, type: 3}
-  - {fileID: -1773026619194971556, guid: 66c623eb12a3843b4819a95033e0624a, type: 3}
-  - {fileID: 5753045350799394352, guid: 5a530db32a6aa45718215fd23566ecb4, type: 3}
+  - {fileID: -8541937740019344627, guid: 74cf0db10874fa645881afcac734b4f6, type: 3}
+  - {fileID: 6798651939426467042, guid: b6b14d6dd6c3ba04d81013520f57cf8c, type: 3}
+  - {fileID: -6926562784561208882, guid: 39f052013b4241b4db3655abff6e2b99, type: 3}
+  - {fileID: -4639971258587910174, guid: 327d7671453538842adfd5d8796475f5, type: 3}
+  - {fileID: 4817137996689209469, guid: c82a4e962906f9441a69557642a6f74b, type: 3}
+  finalBottleLevels:
+  - {fileID: -785365334010769541, guid: 03c4d66f7726ad24f96a1165f4e9323a, type: 3}
+  - {fileID: 6880652944040697543, guid: 10c2c3ad6626bb3499216d2d759d0472, type: 3}
+  - {fileID: 1611509927052627224, guid: 998818de5f5ba7b4784204670718babd, type: 3}
+  - {fileID: 1637712892818981623, guid: 9ca9f1b20095c854396a764e70c50962, type: 3}
+  - {fileID: -2496913098664853424, guid: 9ee12db9038a2564dada549c384afea2, type: 3}
   bottleText: {fileID: 1088374631}
   popupPrefab: {fileID: 2007424743959227025, guid: 2f9e46d4c48f9f64982202e2d9e875e6, type: 3}
   canvas: {fileID: 1302186683}

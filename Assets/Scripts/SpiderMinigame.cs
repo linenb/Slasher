@@ -14,6 +14,7 @@ public class SpiderMinigame : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (PauseManager.IsPaused) return;
         StartMinigame();
         Destroy(gameObject);
     }

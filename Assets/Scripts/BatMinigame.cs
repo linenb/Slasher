@@ -33,6 +33,7 @@ public class BatMinigame : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (PauseManager.IsPaused) return;
         TriggerBatEffect();
         Destroy(gameObject);
     }

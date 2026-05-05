@@ -23,6 +23,7 @@ public class PauseManager : MonoBehaviour
 
         if (pauseButton != null)
             pauseButton.onClick.AddListener(Pause);
+
     }
 
     private void Update()
@@ -46,11 +47,7 @@ public class PauseManager : MonoBehaviour
         if (pauseButton != null)
             pauseButton.gameObject.SetActive(false);
 
-        if (gameUICanvasGroup != null)
-        {
-            gameUICanvasGroup.interactable = false;
-            gameUICanvasGroup.blocksRaycasts = false;
-        }
+
     }
 
     public void Resume()
@@ -65,11 +62,6 @@ public class PauseManager : MonoBehaviour
         if (pauseButton != null)
             pauseButton.gameObject.SetActive(true);
 
-        if (gameUICanvasGroup != null)
-        {
-            gameUICanvasGroup.interactable = true;
-            gameUICanvasGroup.blocksRaycasts = true;
-        }
     }
 
     private void OnDestroy()

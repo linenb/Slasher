@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
+    public static PauseManager instance;
+
+    [Header("References")]
     public GameObject pauseMenuPanel;
-    public Button resumeButton;
     public Button pauseButton;
     public CanvasGroup gameUICanvasGroup;
 
@@ -12,22 +15,19 @@ public class PauseManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
         if (pauseMenuPanel != null)
             pauseMenuPanel.SetActive(false);
     }
 
-    private void Start()
-    {
-        if (resumeButton != null)
-            resumeButton.onClick.AddListener(Resume);
-
-        if (pauseButton != null)
-            pauseButton.onClick.AddListener(Pause);
-
-    }
-
     private void Update()
     {
+        if (!IsGameActive()) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsPaused) Resume();
@@ -35,19 +35,35 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    private bool IsGameActive()
+    {
+        if (SceneManager.GetActiveScene().name != "SampleScene") return false;
+        if (GameManager.instance != null && GameManager.instance.IsGameOver) return false;
+        return true;
+    }
+
     public void Pause()
     {
-        if (IsPaused) return;
+        if (IsPaused || !IsGameActive()) return;
         IsPaused = true;
         Time.timeScale = 0f;
 
         if (pauseMenuPanel != null)
+        {
             pauseMenuPanel.SetActive(true);
+
+            PauseMenuUI ui = pauseMenuPanel.GetComponent<PauseMenuUI>();
+            if (ui != null) ui.OnPauseShown();
+        }
 
         if (pauseButton != null)
             pauseButton.gameObject.SetActive(false);
 
-
+        if (gameUICanvasGroup != null)
+        {
+            gameUICanvasGroup.interactable = false;
+            gameUICanvasGroup.blocksRaycasts = false;
+        }
     }
 
     public void Resume()
@@ -62,6 +78,11 @@ public class PauseManager : MonoBehaviour
         if (pauseButton != null)
             pauseButton.gameObject.SetActive(true);
 
+        if (gameUICanvasGroup != null)
+        {
+            gameUICanvasGroup.interactable = true;
+            gameUICanvasGroup.blocksRaycasts = true;
+        }
     }
 
     private void OnDestroy()

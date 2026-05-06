@@ -53,7 +53,7 @@ public class PauseManager : MonoBehaviour
 
     private bool IsGameActive()
     {
-        if (SceneManager.GetActiveScene().name != "SampleScene") return false;
+        if (SceneManager.GetActiveScene().name != "MainGame") return false;
         if (GameManager.instance != null && GameManager.instance.IsGameOver) return false;
         return true;
     }

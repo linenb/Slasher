@@ -18,10 +18,26 @@ public class PauseManager : MonoBehaviour
         if (instance == null)
             instance = this;
         else
+        {
             Destroy(gameObject);
+            return;
+        }
+
+        // Reset all state on every fresh load
+        IsPaused = false;
+        Time.timeScale = 1f;
 
         if (pauseMenuPanel != null)
             pauseMenuPanel.SetActive(false);
+
+        if (pauseButton != null)
+            pauseButton.gameObject.SetActive(true);
+
+        if (gameUICanvasGroup != null)
+        {
+            gameUICanvasGroup.interactable = true;
+            gameUICanvasGroup.blocksRaycasts = true;
+        }
     }
 
     private void Update()

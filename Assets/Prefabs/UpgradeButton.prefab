@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55.060013, y: -48}
+  m_AnchoredPosition: {x: 55.06, y: -58.1}
   m_SizeDelta: {x: 106.88, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3016037134064688205
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4287393393
+  m_fontColor: {r: 0.4431373, g: 0.43137258, b: 0.54901963, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100.06, y: -17.750017}
-  m_SizeDelta: {x: 196.88, y: 35.5}
+  m_AnchoredPosition: {x: 100.06, y: -22.800005}
+  m_SizeDelta: {x: 196.88, y: 45.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4493412509506880585
 CanvasRenderer:
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291487205
-  m_fontColor: {r: 0.8980392, g: 0.8980392, b: 0.7921569, a: 1}
+    rgba: 4287393393
+  m_fontColor: {r: 0.4431373, g: 0.43137258, b: 0.54901963, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -314,8 +314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100.70001, y: -32.5}
-  m_SizeDelta: {x: 200, y: 65}
+  m_AnchoredPosition: {x: 100.8172, y: -36.718567}
+  m_SizeDelta: {x: 200.2344, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8187426601468958827
 CanvasRenderer:
@@ -376,11 +376,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.35686275, g: 0.14901961, b: 0.29411766, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.4431373, g: 0.43137258, b: 0.54901963, a: 1}
+    m_HighlightedColor: {r: 0.67594236, g: 0.71881175, b: 0.899371, a: 1}
+    m_PressedColor: {r: 0.4431373, g: 0.43137258, b: 0.54901963, a: 1}
+    m_SelectedColor: {r: 0.4431373, g: 0.43137258, b: 0.54901963, a: 1}
+    m_DisabledColor: {r: 0.06666667, g: 0.04705883, b: 0.08235294, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.2
   m_SpriteState:
@@ -426,10 +426,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonUI
   nameText: {fileID: 8626541965740975746}
-  descText: {fileID: 0}
   costText: {fileID: 491500520318058142}
   levelText: {fileID: 8974656013240271441}
   button: {fileID: 3934079090895755758}
+  proximityIndicatorText: {fileID: 0}
+  purchaseCountText: {fileID: 0}
 --- !u!1 &8196091862398375441
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 153.50003, y: -48}
+  m_AnchoredPosition: {x: 153.5, y: -58.100006}
   m_SizeDelta: {x: 90, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &118905119632222376
@@ -504,8 +505,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4287393393
+  m_fontColor: {r: 0.4431373, g: 0.43137258, b: 0.54901963, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

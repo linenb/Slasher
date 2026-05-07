@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -6,9 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("References")]
+
     public GameObject gameOverPanel;
     public TearScoreManager tearScoreManager;
     public TearSystem tearSystem;
+    public Button loadButton;
 
     public bool IsGameOver { get; private set; } = false;
 
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SavingSystem.Instance.SaveGame();
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
     }
@@ -49,6 +53,10 @@ public class GameManager : MonoBehaviour
                 ui.ShowFinalScore(tearScoreManager.score + tearSystem.currency);
                 ui.ShowFinalXP(XPSystem.instance.currentLevel);
             }
+        }
+        if (loadButton != null)
+        {
+            loadButton.interactable = false;
         }
     }
 

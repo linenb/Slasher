@@ -7,4 +7,11 @@ public class SimpleMenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("EXIT GAME");
+
+        Application.Quit();
+    }
 }

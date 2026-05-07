@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Bigger Bottle
   description: 'Increase bottle capacity by '
-  Bottle: {fileID: 0}
   baseCost: 5
   costMultiplier: 5
+  linearCostIncrease: 0
   maxLevel: 10
-  bottleCapacityIncrease: 2
+  goldenTear: 0
+  bottleCapacityIncrease: 5
   spawnSpeedMultiplier: 0
   clickValueIncrease: 0
   fallingSpeedMultiplier: 0
   liftSpeedMultiplier: 0
+  tearsPerSpawnIncrease: 0
+  tearSpeedMultiplierIncrease: 0

@@ -40,6 +40,6 @@ public class TearScoreManager : MonoBehaviour
     void UpdateUI()
     {
         if (pointText != null)
-            pointText.text = "Tears: " + score;
+            pointText.text = "" + score;
     }
 }

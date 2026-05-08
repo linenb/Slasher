@@ -100,7 +100,10 @@ public class PauseManager : MonoBehaviour
             gameUICanvasGroup.blocksRaycasts = true;
         }
     }
-
+    public void SavePressed()
+    {
+        SavingSystem.Instance.SaveGame();
+    }
     private void OnDestroy()
     {
         Time.timeScale = 1f;

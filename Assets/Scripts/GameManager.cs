@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (SavingSystem.Instance != null)
+        {
+            SavingSystem.Instance.ApplyLoad();
+        }
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
     }
@@ -36,6 +41,11 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Game Over triggered!");
 
+        if (File.Exists(SavingSystem.Instance.savePath))
+        {
+            File.Delete(SavingSystem.Instance.savePath);
+            Debug.Log("Save file deleted (game over)");
+        }
         Time.timeScale = 0f;
 
         // Force resume pause menu if it was open

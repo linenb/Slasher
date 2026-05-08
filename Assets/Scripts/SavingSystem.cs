@@ -20,8 +20,8 @@ public class SavingSystem : MonoBehaviour
 {
     public static SavingSystem Instance;
     public TMP_Text saveText;
-    private string savePath;
-
+    public string savePath;
+    private SaveData loadedData;
 
     private void Awake()
     {
@@ -48,6 +48,14 @@ public class SavingSystem : MonoBehaviour
 
     public void SaveGame()
     {
+        Debug.Log("SAVE GAME CALLED");
+
+        if (TearScoreManager.instance == null)
+            Debug.LogError("TearScoreManager is NULL");
+
+        if (XPSystem.instance == null)
+            Debug.LogError("XPSystem is NULL");
+
         SaveData data = new SaveData();
 
         data.tears = TearScoreManager.instance.score;
@@ -65,39 +73,35 @@ public class SavingSystem : MonoBehaviour
 
     public void LoadGame()
     {
-        Debug.Log("CONTINUE PRESSED");
-
         if (!File.Exists(savePath))
         {
-            Debug.Log("NO SAVE FOUND → NEW GAME");
+            Debug.Log("No save file");
             SceneManager.LoadScene("MainGame");
             return;
         }
 
         string json = File.ReadAllText(savePath);
-        SaveData data = JsonUtility.FromJson<SaveData>(json);
+        loadedData = JsonUtility.FromJson<SaveData>(json);
 
-        StartCoroutine(LoadSceneAndApply(data));
+        SceneManager.LoadScene("MainGame");
     }
-    IEnumerator LoadSceneAndApply(SaveData data)
+    public void ApplyLoad()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync("MainGame");
-
-        while (!op.isDone)
-            yield return null;
-
-        yield return null; // extra safety frame
+        if (loadedData == null)
+            return;
 
         if (TearScoreManager.instance == null || XPSystem.instance == null)
         {
-            Debug.LogError("Systems not ready after scene load!");
-            yield break;
+            Debug.LogError("Systems not ready yet");
+            return;
         }
 
-        TearScoreManager.instance.score = data.tears;
-        XPSystem.instance.currentLevel = data.level;
-        XPSystem.instance.currentXP = data.xp;
+        TearScoreManager.instance.score = loadedData.tears;
+        XPSystem.instance.currentLevel = loadedData.level;
+        XPSystem.instance.currentXP = loadedData.xp;
 
-        Debug.Log("Loaded into game");
+        loadedData = null;
+
+        Debug.Log("Load applied safely");
     }
 }

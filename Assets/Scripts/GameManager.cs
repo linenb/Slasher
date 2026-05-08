@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SavingSystem.Instance.SaveGame();
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
     }

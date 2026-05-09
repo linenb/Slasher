@@ -1,6 +1,7 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenuPanel;
     public Button pauseButton;
     public CanvasGroup gameUICanvasGroup;
+    public Button saveButton;
+    public TMP_Text saveButtonText;
+    public TMP_Text lastSavedText;
 
     public static bool IsPaused { get; private set; } = false;
 
@@ -66,7 +70,12 @@ public class PauseManager : MonoBehaviour
 
         if (pauseMenuPanel != null)
         {
+
+            saveButton.interactable = true;
+            saveButtonText.text = "Save";
+            UpdateSaveTimeText();
             pauseMenuPanel.SetActive(true);
+
 
             PauseMenuUI ui = pauseMenuPanel.GetComponent<PauseMenuUI>();
             if (ui != null) ui.OnPauseShown();
@@ -103,6 +112,29 @@ public class PauseManager : MonoBehaviour
     public void SavePressed()
     {
         SavingSystem.Instance.SaveGame();
+        saveButton.interactable = false;
+        saveButtonText.text = "Saved";
+        UpdateSaveTimeText();
+    }
+    void UpdateSaveTimeText()
+    {
+        if (SavingSystem.Instance == null)
+            return;
+
+        System.TimeSpan timeSinceSave =
+            System.DateTime.Now - SavingSystem.Instance.LastSaveTime;
+
+        int seconds = Mathf.FloorToInt((float)timeSinceSave.TotalSeconds);
+
+        if (seconds < 60)
+        {
+            lastSavedText.text = $"Saved {seconds}s ago";
+        }
+        else
+        {
+            int minutes = Mathf.FloorToInt(seconds / 60f);
+            lastSavedText.text = $"Saved {minutes}m ago";
+        }
     }
     private void OnDestroy()
     {

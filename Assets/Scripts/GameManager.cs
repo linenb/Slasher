@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,9 +31,11 @@ public class GameManager : MonoBehaviour
         {
             SavingSystem.Instance.ApplyLoad();
         }
+
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
     }
+
 
     public void TriggerGameOver()
     {

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class UpgradePanel : MonoBehaviour
 {
+    public static UpgradePanel instance;
+
     public UpgradeData[] upgrades;
     public GameObject upgradePrefab;
     public Transform container;
@@ -13,5 +15,9 @@ public class UpgradePanel : MonoBehaviour
             GameObject obj = Instantiate(upgradePrefab, container);
             obj.GetComponent<UpgradeButtonUI>().Setup(upgrade);
         }
+    }
+    void Awake()
+    {
+        instance = this;
     }
 }

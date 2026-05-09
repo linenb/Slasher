@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -12,16 +13,15 @@ public class SaveData
     public int xp;
     public int tears;
     public int bottleTears;
-    public int damageUpgrade;
-    public int speedUpgrade;
-    
+    public List<int> upgradeLevels;
+
 }
 public class SavingSystem : MonoBehaviour
 {
     public static SavingSystem Instance;
-    public TMP_Text saveText;
     public string savePath;
     private SaveData loadedData;
+    public System.DateTime LastSaveTime { get; private set; }
 
     private void Awake()
     {
@@ -42,10 +42,19 @@ public class SavingSystem : MonoBehaviour
 
     private void Start()
     {
-        // Start autosave every 60 seconds
-        InvokeRepeating(nameof(SaveGame), 60f, 60f);
+        LastSaveTime = System.DateTime.Now;
+        InvokeRepeating(nameof(AutoSave), 60f, 60f);
     }
+    private void AutoSave()
+    {
+        if (SceneManager.GetActiveScene().name != "MainGame")
+            return;
 
+        if (GameManager.instance != null && GameManager.instance.IsGameOver)
+            return;
+
+        SaveGame();
+    }
     public void SaveGame()
     {
         Debug.Log("SAVE GAME CALLED");
@@ -62,6 +71,25 @@ public class SavingSystem : MonoBehaviour
         data.level = XPSystem.instance.currentLevel;
         data.xp = XPSystem.instance.currentXP;
 
+        data.upgradeLevels = new List<int>();
+        if (UpgradePanel.instance == null)
+{
+    Debug.LogError("UpgradePanel is NULL at save time");
+    return;
+}
+
+if (UpgradePanel.instance.upgrades == null)
+{
+    Debug.LogError("UpgradePanel.upgrades is NULL");
+    return;
+}
+        data.upgradeLevels = new List<int>();
+
+        foreach (var upgrade in UpgradeRuntimeData.instance.AllUpgrades)
+        {
+            data.upgradeLevels.Add(UpgradeRuntimeData.instance.GetLevel(upgrade));
+        }
+
         string json = JsonUtility.ToJson(data, true);
 
         File.WriteAllText(savePath, json);
@@ -69,6 +97,7 @@ public class SavingSystem : MonoBehaviour
         Debug.Log("SAVE WRITTEN TO: " + savePath);
         Debug.Log("FILE EXISTS NOW: " + File.Exists(savePath));
         Debug.Log("Saved!");
+        LastSaveTime = System.DateTime.Now;
     }
 
     public void LoadGame()
@@ -99,6 +128,15 @@ public class SavingSystem : MonoBehaviour
         TearScoreManager.instance.score = loadedData.tears;
         XPSystem.instance.currentLevel = loadedData.level;
         XPSystem.instance.currentXP = loadedData.xp;
+
+        for (int i = 0; i < loadedData.upgradeLevels.Count; i++)
+        {
+            var upgrade = UpgradeRuntimeData.instance.AllUpgrades[i];
+            int level = loadedData.upgradeLevels[i];
+
+            UpgradeRuntimeData.instance.SetLevel(upgrade, level);
+            UpgradeManager.instance.ApplyUpgradeAtLevel(upgrade, level);
+        }
 
         loadedData = null;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class UpgradeRuntimeData : MonoBehaviour
 {
     public static UpgradeRuntimeData instance;
+    public UpgradeData[] AllUpgrades;
 
     Dictionary<UpgradeData, int> levels = new Dictionary<UpgradeData, int>();
 
@@ -27,7 +28,13 @@ public class UpgradeRuntimeData : MonoBehaviour
 
         levels[data]++;
     }
-
+    public void SetLevel(UpgradeData data, int level)
+    {
+        if (levels.ContainsKey(data))
+            levels[data] = level;
+        else
+            levels.Add(data, level);
+    }
     public void ResetAll()
     {
         levels.Clear();

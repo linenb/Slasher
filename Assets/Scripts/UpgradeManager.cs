@@ -51,12 +51,12 @@ public class UpgradeManager : MonoBehaviour
 
         UpgradeRuntimeData.instance.IncreaseLevel(data);
 
-        ApplyUpgrade(data);
+        ApplyUpgradeAtLevel(data);
 
         Debug.Log($"Bought {data.upgradeName} Lv.{level + 1}");
     }
 
-    void ApplyUpgrade(UpgradeData data)
+    public void ApplyUpgradeAtLevel(UpgradeData data)
     {
         int level = UpgradeRuntimeData.instance.GetLevel(data);
 
@@ -135,7 +135,79 @@ public class UpgradeManager : MonoBehaviour
             tearSystem.tearSpeedMultiplier += data.tearSpeedMultiplierIncrease;
         }
     }
+    public void ApplyUpgradeAtLevel(UpgradeData data, int level)
+{
+    // RESET per upgrade first (IMPORTANT if needed)
 
+    // BOTTLE (absolute state)
+    if (data.bottleCapacityIncrease > 0)
+    {
+        tearSystem.bottleCapacity =
+            tearSystem.baseBottleCapacity + (data.bottleCapacityIncrease * level);
+
+        float scale = 1f + (0.1f * level);
+        bottleTransform.localScale = originalBottleScale * scale;
+
+        if (level >= 4)
+        {
+            tearSystem.bottleLevels = tearSystem.finalBottleLevels;
+            tearSystem.UpdateBottle();
+        }
+    }
+
+    // GOLDEN TEAR (STATE)
+    if (data.goldenTear)
+    {
+        tearSystem.goldenTearChance = 0.05f * level;
+
+        if (level <= 0)
+            characterSpriteRenderer.sprite = normalSprite;
+        else if (level < data.maxLevel)
+            characterSpriteRenderer.sprite = goldenSprite1;
+        else
+            characterSpriteRenderer.sprite = goldenSprite2;
+    }
+
+    // SPAWN SPEED (ABSOLUTE)
+    if (data.spawnSpeedMultiplier > 0)
+    {
+        tearSystem.spawnInterval =
+            tearSystem.baseSpawnInterval * Mathf.Pow(data.spawnSpeedMultiplier, level);
+    }
+
+    // CLICK VALUE (STATE BASED)
+    if (data.clickValueIncrease > 0)
+    {
+        tearSystem.clickValue = (int)Mathf.Pow(2, level);
+    }
+
+    // KNIFE FALL SPEED (ABSOLUTE)
+    if (data.fallingSpeedMultiplier > 0)
+    {
+        FallingObjectManager.instance.speedMultiplier =
+            Mathf.Clamp(1f - (data.fallingSpeedMultiplier * level), 0.2f, 10f);
+    }
+
+    // LIFT SPEED (ABSOLUTE)
+    if (data.liftSpeedMultiplier > 0)
+    {
+        FallingObjectManager.instance.liftMultiplier =
+            1f + (data.liftSpeedMultiplier * level);
+    }
+
+    // TEARS PER SPAWN (STATE)
+    if (data.tearsPerSpawnIncrease > 0)
+    {
+        tearSystem.tearsPerSpawn = level;
+    }
+
+    // PROXIMITY SPEED (STATE)
+    if (data.tearSpeedMultiplierIncrease > 0)
+    {
+        tearSystem.tearSpeedMultiplier =
+            1f + (data.tearSpeedMultiplierIncrease * level);
+    }
+}
 
     public void ResetAllEffects()
     {

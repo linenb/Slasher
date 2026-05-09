@@ -12,6 +12,10 @@ public class UpgradeManager : MonoBehaviour
     public Sprite goldenSprite1;
     public Sprite goldenSprite2;
 
+    [Header("Lighter Knife Balloons")]
+    [Tooltip("Reference to the UpgradeData asset that represents the 'lighter knife' upgrade")]
+    public UpgradeData lighterKnifeUpgradeData;
+
     void Awake()
     {
         instance = this;
@@ -117,6 +121,13 @@ public class UpgradeManager : MonoBehaviour
             );
 
             Debug.Log("New fall speed multiplier: " + FallingObjectManager.instance.speedMultiplier);
+
+            // Spawn one balloon per lighter-knife level
+            if (lighterKnifeUpgradeData != null && data == lighterKnifeUpgradeData)
+            {
+                BalloonAttachment.SetBalloonCount(level);
+                Debug.Log($"Lighter knife level {level} — showing {level} balloon(s) on knife.");
+            }
         }
 
         // Lift speed

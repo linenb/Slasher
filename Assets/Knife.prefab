@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 59292345829660238}
   - component: {fileID: 1831864951238328176}
   - component: {fileID: 1399848713606132136}
+  - component: {fileID: 327185725533395023}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -107,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingObject
   pixelsPerSecond: 20
+  liftForce: 2
+  topOffset: 4
 --- !u!60 &1831864951238328176
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -195,3 +198,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &327185725533395023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719113965243838581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7025f92583349463f872c1548883e021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BalloonAttachment
+  horizontalSpread: 0.15
+  verticalOffset: 0.35
+  balloonColors:
+  - {r: 1, g: 0.2, b: 0.2, a: 1}
+  - {r: 0.3, g: 0.6, b: 1, a: 1}
+  - {r: 0.3, g: 0.9, b: 0.3, a: 1}
+  - {r: 1, g: 0.85, b: 0.1, a: 1}
+  - {r: 1, g: 0.4, b: 0.9, a: 1}
+  - {r: 0.6, g: 0.2, b: 1, a: 1}
+  - {r: 1, g: 0.6, b: 0.1, a: 1}

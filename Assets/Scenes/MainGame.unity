@@ -5436,6 +5436,7 @@ MonoBehaviour:
   normalSprite: {fileID: 1880952948382225030, guid: 3a53271964d6764409c2ea572d76e942, type: 3}
   goldenSprite1: {fileID: -5788078366192659142, guid: 95a74a2d6f3b229428e2ac596359fe77, type: 3}
   goldenSprite2: {fileID: -2561508284813000314, guid: c650027361b1ab3458920df1d4d26a99, type: 3}
+  lighterKnifeUpgradeData: {fileID: 11400000, guid: b48947b69a809e645abf02be62733346, type: 2}
 --- !u!4 &1698218376
 Transform:
   m_ObjectHideFlags: 0
@@ -7371,6 +7372,22 @@ PrefabInstance:
     - target: {fileID: 59292345829660238, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
       propertyPath: pixelsPerSecond
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 327185725533395023, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
+      propertyPath: localStagger
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 327185725533395023, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
+      propertyPath: balloonLocalRadius
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 327185725533395023, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
+      propertyPath: localVerticalOffset
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 327185725533395023, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
+      propertyPath: localHorizontalSpread
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 830506450057626157, guid: e39c4d64d7c09394c8d5e4f8362b2d1a, type: 3}
       propertyPath: m_LocalScale.x

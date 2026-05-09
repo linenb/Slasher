@@ -21,6 +21,7 @@ public class BottleClick : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 tearSystem.CollectBottle();
+                AudioManager.instance.PlayGlassTap();
             }
         }
     }

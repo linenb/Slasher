@@ -7,6 +7,8 @@ public class UpgradeButtonUI : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI costText;
     public TextMeshProUGUI levelText;
+    private Image buttonImage;
+    private Color normalColor;
 
     public Button button;
 
@@ -21,7 +23,12 @@ public class UpgradeButtonUI : MonoBehaviour
     public void Setup(UpgradeData upgrade)
     {
         data = upgrade;
+
         button.onClick.AddListener(OnClick);
+
+        buttonImage = button.GetComponent<Image>();
+        normalColor = buttonImage.color;
+
         Refresh();
     }
 
@@ -56,10 +63,22 @@ public class UpgradeButtonUI : MonoBehaviour
         bool canAfford = TearScoreManager.instance.HasEnough(cost);
         bool maxed = level >= data.maxLevel;
 
-        button.interactable =
-            TearScoreManager.instance.HasEnough(cost) &&
-            level < data.maxLevel;
- 
+        button.interactable = true;
+
+        if (!canAfford || maxed)
+        {
+            buttonImage.color = new Color(
+                normalColor.r * 0.5f,
+                normalColor.g * 0.5f,
+                normalColor.b * 0.5f,
+                normalColor.a
+            );
+        }
+        else
+        {
+            buttonImage.color = normalColor;
+        }
+
         if (proximityIndicatorText != null && isProximityUpgrade)
         {
             bool knifeClose = KnifeDetector.instance != null &&
@@ -99,6 +118,25 @@ public class UpgradeButtonUI : MonoBehaviour
 
     void OnClick()
     {
-        UpgradeManager.instance.BuyUpgrade(data);
+        if (data == null) return;
+
+        int level = UpgradeRuntimeData.instance.GetLevel(data);
+        int cost = data.GetCost(level);
+
+        bool canAfford = TearScoreManager.instance.HasEnough(cost);
+        bool maxed = level >= data.maxLevel;
+
+        if (!canAfford || maxed)
+        {
+            AudioManager.instance.PlayError();
+            return;
+        }
+
+        bool success = UpgradeManager.instance.BuyUpgrade(data);
+
+        if (success)
+        {
+            AudioManager.instance.PlayPurchase();
+        }
     }
 }

@@ -4,15 +4,29 @@ public class FallingObjectManager : MonoBehaviour
 {
     public static FallingObjectManager instance;
 
-    public float speedMultiplier = 1f; // fall
-    public float liftMultiplier = 1f;  // lift
+    // Lift
+    public float liftMultiplier = 1f;
 
-    public float baseSpeedMultiplier = 1f;
+    // Fall speed components
+    public float levelSpeedMultiplier = 1f;
+    public float upgradeSpeedMultiplier = 1f;
+
+    // Final combined speed
+    public float speedMultiplier
+    {
+        get
+        {
+            return levelSpeedMultiplier * upgradeSpeedMultiplier;
+        }
+    }
+
     public float baseLiftMultiplier = 1f;
 
     public void ResetToBase()
     {
-        speedMultiplier = baseSpeedMultiplier;
+        levelSpeedMultiplier = 1f;
+        upgradeSpeedMultiplier = 1f;
+
         liftMultiplier = baseLiftMultiplier;
     }
 
@@ -24,7 +38,9 @@ public class FallingObjectManager : MonoBehaviour
     void Start()
     {
         // reset kad nesikauptų
-        speedMultiplier = 1f;
+        levelSpeedMultiplier = 1f;
+        upgradeSpeedMultiplier = 1f;
+
         liftMultiplier = 1f;
     }
 }

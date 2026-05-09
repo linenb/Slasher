@@ -26,6 +26,8 @@ public class SpiderClickMinigame : MonoBehaviour
         timer = duration;
         isActive = true;
 
+        AudioManager.instance.ResetSpiderPitch();
+
         gameObject.SetActive(true);
     }
 
@@ -52,6 +54,8 @@ public class SpiderClickMinigame : MonoBehaviour
         if (!isActive) return;
 
         clickCount++;
+
+        AudioManager.instance.PlaySpiderTap();
     }
 
     void EndGame()

@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.EventSystems;
 
-public class SpiderMinigame : MonoBehaviour
+public class SpiderMinigame : MonoBehaviour, IPointerDownHandler
 {
     private GameObject minigameUI;
 
@@ -12,14 +13,15 @@ public class SpiderMinigame : MonoBehaviour
             .FirstOrDefault(obj => obj.name == "SpiderMinigameUI");
     }
 
-    void OnMouseDown()
+    //  OnMouseDown for UI elements
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (PauseManager.IsPaused) return;
         StartMinigame();
         Destroy(gameObject);
     }
 
-    void StartMinigame()
+ void StartMinigame()
     {
         if (minigameUI == null)
         {
@@ -30,21 +32,8 @@ public class SpiderMinigame : MonoBehaviour
         minigameUI.SetActive(true);
 
         if (SpiderClickMinigame.instance != null)
-        {
             SpiderClickMinigame.instance.StartGame();
-        }
         else
-        {
             Debug.LogError("SpiderClickMinigame instance NOT FOUND!");
-        }
-    }
-
-    void SetUIReference()
-    {
-        if (minigameUI == null)
-        {
-            minigameUI = Resources.FindObjectsOfTypeAll<GameObject>()
-                .FirstOrDefault(obj => obj.name == "SpiderMinigameUI");
-        }
     }
 }

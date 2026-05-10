@@ -7548,6 +7548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderSpawner
   spiderPrefab: {fileID: 6535050919851949000, guid: ec74cbc92a5b5014ca2da54c4e0edf25, type: 3}
+  canvasRect: {fileID: 1191682812}
   minSpawnTime: 20
   maxSpawnTime: 40
 --- !u!224 &2025183214

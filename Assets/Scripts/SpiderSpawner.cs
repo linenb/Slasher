@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpiderSpawner : MonoBehaviour
 {
     public GameObject spiderPrefab;
+    public RectTransform canvasRect;
 
     public float minSpawnTime = 10f;
     public float maxSpawnTime = 20f;
@@ -30,17 +31,16 @@ public class SpiderSpawner : MonoBehaviour
 
     void SpawnSpider()
     {
-        Vector3 pos = new Vector3(
-            Random.Range(-6f, 6f),
-            Random.Range(-3f, 3f),
-            0
-        );
+        Canvas liveCanvas = canvasRect.GetComponent<Canvas>();
+        if (liveCanvas == null) return;
 
-        GameObject spider = Instantiate(spiderPrefab, pos, Quaternion.identity);
+        float halfWidth = canvasRect.rect.width / 2f;
+        float x = Random.Range(-halfWidth + 100f, halfWidth - 100f);
+        float y = Random.Range(-200f, 200f);
 
-        // assign UI safely
-        SpiderMinigame script = spider.GetComponent<SpiderMinigame>();
-        script.SendMessage("SetUIReference", SendMessageOptions.DontRequireReceiver);
+        GameObject spider = Instantiate(spiderPrefab, liveCanvas.transform);
+        RectTransform rt = spider.GetComponent<RectTransform>();
+        rt.anchoredPosition = new Vector2(x, y);
     }
 
     public void ForceSpawnSpider()

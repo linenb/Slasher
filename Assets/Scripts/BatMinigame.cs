@@ -1,53 +1,64 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class BatMinigame : MonoBehaviour
+public class BatMinigame : MonoBehaviour, IPointerDownHandler
 {
-    public float speed = 3f;
-    public float bobHeight = 0.5f;
+    public float speed = 300f;      // UI pixels per second (was 3f world units)
+    public float bobHeight = 30f;   // UI pixels (was 0.5f world units)
     public float bobSpeed = 3f;
 
-    private Vector3 startPos;
+    private RectTransform rt;
+    private Vector2 startPos;
     private float timeOffset;
+    private RectTransform canvasRect;
 
     void Start()
     {
-        startPos = transform.position;
+        rt = GetComponent<RectTransform>();
+        startPos = rt.anchoredPosition;
         timeOffset = Random.Range(0f, 100f);
+
+        // Find canvas size for off-screen check
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas != null)
+            canvasRect = canvas.GetComponent<RectTransform>();
     }
 
     void Update()
     {
-        // Move horizontally
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-        // Bob up/down (sine wave)
+        // Move horizontally in UI space
+        Vector2 pos = rt.anchoredPosition;
+        pos.x += speed * Time.deltaTime;
+        
+        // Bob up/down
         float yOffset = Mathf.Sin((Time.time + timeOffset) * bobSpeed) * bobHeight;
-        transform.position = new Vector3(transform.position.x, startPos.y + yOffset, transform.position.z);
+        pos.y = startPos.y + yOffset;
+        
+        rt.anchoredPosition = pos;
 
         // Destroy if off screen
-        if (Mathf.Abs(transform.position.x) > 10f)
+        if (canvasRect != null)
         {
-            Destroy(gameObject);
+            float halfWidth = canvasRect.rect.width / 2f;
+            if (Mathf.Abs(rt.anchoredPosition.x) > halfWidth + 150f)
+                Destroy(gameObject);
         }
     }
 
-    void OnMouseDown()
+    // This replaces OnMouseDown for UI elements
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (PauseManager.IsPaused) return;
 
         AudioManager.instance.PlayBatScreech();
-
         TriggerBatEffect();
-
         Destroy(gameObject);
     }
 
     void TriggerBatEffect()
     {
-        // call tear explosion on fox
         if (TearSystem.instance != null)
-        {
             TearSystem.instance.BatScareExplosion();
-        }
     }
 }

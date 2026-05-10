@@ -1129,6 +1129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 359404219}
   - component: {fileID: 359404218}
+  - component: {fileID: 359404222}
+  - component: {fileID: 359404221}
+  - component: {fileID: 359404220}
   m_Layer: 0
   m_Name: BatSpawner
   m_TagString: Untagged
@@ -1148,26 +1151,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34de9c2d865c84f42b8ed24d35ea7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BatSpawner
-  batPrefab: {fileID: 4273537162251070381, guid: 5f0324649e6cc2148886c8fea98f1c2b, type: 3}
+  batPrefab: {fileID: 5782650599634309755, guid: f5b5c801ebc11fb45ae9da2285b51658, type: 3}
   spawnInterval: 8
   spawnChance: 0.6
-  spawnYMin: -2
-  spawnYMax: 2
---- !u!4 &359404219
-Transform:
+  spawnYMin: -200
+  spawnYMax: 200
+  canvasRect: {fileID: 1191682812}
+--- !u!224 &359404219
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359404217}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.90411, y: 2.01648, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -4.90411, y: 2.01648}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &359404220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359404217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d20704b71ec8c34c8c2861f2eed5294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
+  frames:
+  - {fileID: 21300000, guid: 9179a6055f2409d418199f96cf4fba17, type: 3}
+  - {fileID: 21300000, guid: fba822cf3041445479018c91ab904468, type: 3}
+  - {fileID: 21300000, guid: 3745196e01646b84fa19da6af93132b1, type: 3}
+  - {fileID: 21300000, guid: 3881931d4a521bd4aa48d381cfe0ceee, type: 3}
+  - {fileID: 21300000, guid: 6983a931c9fccae40801a1f9b78f15ee, type: 3}
+  fps: 12
+  loop: 1
+  playOnEnable: 1
+--- !u!114 &359404221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359404217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9179a6055f2409d418199f96cf4fba17, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &359404222
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359404217}
+  m_CullTransparentMesh: 1
 --- !u!1 &390077319
 GameObject:
   m_ObjectHideFlags: 0
@@ -6500,6 +6567,7 @@ GameObject:
   - component: {fileID: 1894743792}
   - component: {fileID: 1894743791}
   - component: {fileID: 1894743790}
+  - component: {fileID: 1894743793}
   m_Layer: 2
   m_Name: SpiderMinigameUI
   m_TagString: Untagged
@@ -6559,14 +6627,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d1744e06bf5d25d49bd52524459ee4b1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6583,6 +6651,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894743788}
   m_CullTransparentMesh: 1
+--- !u!114 &1894743793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894743788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d20704b71ec8c34c8c2861f2eed5294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
+  frames:
+  - {fileID: 21300000, guid: d1744e06bf5d25d49bd52524459ee4b1, type: 3}
+  - {fileID: 21300000, guid: ce6f65080384677488655450a2f367c1, type: 3}
+  - {fileID: 21300000, guid: 898e9754d23192d49b5b504742075301, type: 3}
+  fps: 12
+  loop: 1
+  playOnEnable: 1
 --- !u!1 &1923547011
 GameObject:
   m_ObjectHideFlags: 0
@@ -7439,6 +7526,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2025183214}
   - component: {fileID: 2025183213}
+  - component: {fileID: 2025183217}
+  - component: {fileID: 2025183216}
   m_Layer: 0
   m_Name: SpiderSpawner
   m_TagString: Untagged
@@ -7458,24 +7547,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1d32d045500d94381f2ddbc0b78992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderSpawner
-  spiderPrefab: {fileID: 6262668826730459237, guid: 5b8200d795db4414bbd8e7a80489bd92, type: 3}
+  spiderPrefab: {fileID: 6535050919851949000, guid: ec74cbc92a5b5014ca2da54c4e0edf25, type: 3}
   minSpawnTime: 20
   maxSpawnTime: 40
---- !u!4 &2025183214
-Transform:
+--- !u!224 &2025183214
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025183212}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.45924, y: 1.71308, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.45924, y: 1.71308}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2025183216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025183212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d1744e06bf5d25d49bd52524459ee4b1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2025183217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025183212}
+  m_CullTransparentMesh: 1
 --- !u!1 &2043665567
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 22c1fe69d454d1f4fa23330740aa7fef
+guid: ce6f65080384677488655450a2f367c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8491162346045850723
-    second: voras_0
+      213: 7766737776461646816
+    second: frame_1_delay-0.3s 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: voras_0
+      name: frame_1_delay-0.3s 1_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 27
-        width: 148
-        height: 208
+        x: 37
+        y: 0
+        width: 179
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9bb3c995d4592a80800000000000000
-      internalID: -8491162346045850723
+      spriteID: 0eb8a959bdef8cb60800000000000000
+      internalID: 7766737776461646816
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      voras_0: -8491162346045850723
+      frame_1_delay-0.3s 1_0: 7766737776461646816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

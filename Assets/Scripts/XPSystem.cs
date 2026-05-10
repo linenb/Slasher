@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -75,7 +76,8 @@ public class XPSystem : MonoBehaviour
         if (FallingObjectManager.instance == null) return;
 
         // Increases speed by 10% per level, capped at the clamp limit of 2x in FallingObject.cs
-        FallingObjectManager.instance.speedMultiplier = 1f + (currentLevel - 1) * 0.05f;
+        FallingObjectManager.instance.levelSpeedMultiplier =
+        1f + (currentLevel - 1) * 0.05f;
     }
 
     void UpdateCharacterSprite(int tier)

@@ -29,6 +29,8 @@ public class UIButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         targetScale = originalScale * hoverScale;
+
+        AudioManager.instance.PlayHover();
     }
 
     public void OnPointerExit(PointerEventData eventData)

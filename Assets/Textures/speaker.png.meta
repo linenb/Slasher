@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 9ca9f1b20095c854396a764e70c50962
+guid: 216b152acfb767a4696818c68b03eb4e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1637712892818981623
-    second: BigBottle4_0
+      213: -8229598120360318422
+    second: speaker_0
+  - first:
+      213: -666862027130193201
+    second: speaker_1
+  - first:
+      213: -5984886456545762041
+    second: speaker_2
+  - first:
+      213: 5319525106251940572
+    second: speaker_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +55,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigBottle4_0
+      name: speaker_0
       rect:
         serializedVersion: 2
-        x: 223
-        y: 15
-        width: 578
-        height: 898
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1381
+        y: 670
+        width: 1889
+        height: 2860
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f28d84f2335ab610800000000000000
-      internalID: 1637712892818981623
+      spriteID: a2a63bf9c189acd80800000000000000
+      internalID: -8229598120360318422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speaker_1
+      rect:
+        serializedVersion: 2
+        x: 3387
+        y: 1259
+        width: 401
+        height: 1676
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca35bef484deb6f0800000000000000
+      internalID: -666862027130193201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speaker_2
+      rect:
+        serializedVersion: 2
+        x: 3802
+        y: 1018
+        width: 455
+        height: 2187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7052b802a7961fca0800000000000000
+      internalID: -5984886456545762041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speaker_3
+      rect:
+        serializedVersion: 2
+        x: 4207
+        y: 783
+        width: 510
+        height: 2685
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd24beb66efb2d940800000000000000
+      internalID: 5319525106251940572
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0f4eb581ac3503748b298ddb482d2e63
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BigBottle4_0: 1637712892818981623
+      speaker_0: -8229598120360318422
+      speaker_1: -666862027130193201
+      speaker_2: -5984886456545762041
+      speaker_3: 5319525106251940572
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

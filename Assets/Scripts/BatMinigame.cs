@@ -34,7 +34,11 @@ public class BatMinigame : MonoBehaviour
     void OnMouseDown()
     {
         if (PauseManager.IsPaused) return;
+
+        AudioManager.instance.PlayBatScreech();
+
         TriggerBatEffect();
+
         Destroy(gameObject);
     }
 

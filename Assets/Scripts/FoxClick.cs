@@ -36,6 +36,7 @@ public class FoxClick : MonoBehaviour
             value = 1000;
 
         TearScoreManager.instance.Add(value);
+
         if (XPSystem.instance != null)
             XPSystem.instance.AddXP(value * xpPerTear);
 
@@ -46,6 +47,9 @@ public class FoxClick : MonoBehaviour
         );
 
         tearSystem.SpawnPopup(value, tearSystem.eyePoint.position + offset);
+
         tearSystem.SpawnClickTear();
+
+        AudioManager.instance.TryPlayFoxGrunt();
     }
 }

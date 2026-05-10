@@ -10,26 +10,17 @@ public class Rope : MonoBehaviour
 
     public FallingObject knife;
 
-    [Header("Sound")]
-    public AudioClip clickSound;
-    private AudioSource audioSource;
 
     void Start()
     {
         startPos = transform.localPosition;
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
     }
 
     public void OnRopeClicked()
     {
-        //Debug.Log("Rope clicked!");
         isPulling = true;
 
-        if (clickSound != null)
-        {
-            audioSource.PlayOneShot(clickSound);
-        }
+        AudioManager.instance.PlayRopePull();
 
         if (knife != null)
         {
@@ -39,6 +30,12 @@ public class Rope : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnRopeClicked();
+        }
+
         if (isPulling)
         {
             Vector3 target = startPos + Vector3.down * pullDistance;

@@ -12,6 +12,10 @@ public class UpgradeManager : MonoBehaviour
     public Sprite goldenSprite1;
     public Sprite goldenSprite2;
 
+    [Header("Lighter Knife Balloons")]
+    [Tooltip("Reference to the UpgradeData asset that represents the 'lighter knife' upgrade")]
+    public UpgradeData lighterKnifeUpgradeData;
+
     void Awake()
     {
         instance = this;
@@ -28,9 +32,9 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void BuyUpgrade(UpgradeData data)
+    public bool BuyUpgrade(UpgradeData data)
     {
-        if (data == null) return;
+        if (data == null) return false;
 
         int level = UpgradeRuntimeData.instance.GetLevel(data);
         int cost = data.GetCost(level);
@@ -38,13 +42,13 @@ public class UpgradeManager : MonoBehaviour
         if (!TearScoreManager.instance.HasEnough(cost))
         {
             Debug.Log("Not enough points");
-            return;
+            return false;
         }
 
         if (level >= data.maxLevel)
         {
             Debug.Log("Max level reached");
-            return;
+            return false;
         }
 
         TearScoreManager.instance.Spend(cost);
@@ -54,6 +58,8 @@ public class UpgradeManager : MonoBehaviour
         ApplyUpgradeAtLevel(data);
 
         Debug.Log($"Bought {data.upgradeName} Lv.{level + 1}");
+
+        return true;
     }
 
     public void ApplyUpgradeAtLevel(UpgradeData data)
@@ -67,22 +73,25 @@ public class UpgradeManager : MonoBehaviour
 
             if (bottleTransform == null) return;
 
-            float scaleIncrease = 0f;
-
             if (level <= 3)
             {
-                scaleIncrease += 0.1f;
+                bottleTransform.localScale = originalBottleScale * (1f + level * 0.08f);
             }
             else if (level == 4)
             {
-                scaleIncrease -= 0.3f;
                 tearSystem.bottleLevels = tearSystem.finalBottleLevels;
                 tearSystem.UpdateBottle();
+
+                // Reset scale for final bottle
+                bottleTransform.localScale = originalBottleScale * 1.05f;
+
+                // Optional position adjustment
+                bottleTransform.localPosition = new Vector3(
+                    bottleTransform.localPosition.x,
+                    bottleTransform.localPosition.y - 0.2f,
+                    bottleTransform.localPosition.z
+                );
             }
-
-                scaleIncrease += 0.01f;
-
-            bottleTransform.localScale += Vector3.one * scaleIncrease;
         }
 
         // Golden tear chance
@@ -111,12 +120,20 @@ public class UpgradeManager : MonoBehaviour
         // Knife fall speed (SLOW DOWN FIXED)
         if (data.fallingSpeedMultiplier > 0)
         {
-            FallingObjectManager.instance.speedMultiplier = Mathf.Max(
-                0.2f,
-                FallingObjectManager.instance.speedMultiplier * (1f - data.fallingSpeedMultiplier)
-            );
+            FallingObjectManager.instance.upgradeSpeedMultiplier *=
+            (1f - data.fallingSpeedMultiplier);
+
+            FallingObjectManager.instance.upgradeSpeedMultiplier =
+                Mathf.Max(0.2f, FallingObjectManager.instance.upgradeSpeedMultiplier);
 
             Debug.Log("New fall speed multiplier: " + FallingObjectManager.instance.speedMultiplier);
+
+            // Spawn one balloon per lighter-knife level
+            if (lighterKnifeUpgradeData != null && data == lighterKnifeUpgradeData)
+            {
+                BalloonAttachment.SetBalloonCount(level);
+                Debug.Log($"Lighter knife level {level} — showing {level} balloon(s) on knife.");
+            }
         }
 
         // Lift speed

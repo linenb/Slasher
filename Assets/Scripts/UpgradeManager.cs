@@ -201,7 +201,7 @@ public class UpgradeManager : MonoBehaviour
     // KNIFE FALL SPEED (ABSOLUTE)
     if (data.fallingSpeedMultiplier > 0)
     {
-        FallingObjectManager.instance.speedMultiplier =
+        FallingObjectManager.instance.upgradeSpeedMultiplier =
             Mathf.Clamp(1f - (data.fallingSpeedMultiplier * level), 0.2f, 10f);
     }
 

@@ -25,9 +25,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start()
+    IEnumerator Start()
     {
-        if (SavingSystem.Instance != null)
+        yield return null;
+
+        if (SavingSystem.Instance != null &&
+            SavingSystem.Instance.loadedData != null)
         {
             SavingSystem.Instance.ApplyLoad();
         }

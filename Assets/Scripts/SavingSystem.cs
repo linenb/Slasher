@@ -20,7 +20,7 @@ public class SavingSystem : MonoBehaviour
 {
     public static SavingSystem Instance;
     public string savePath;
-    private SaveData loadedData;
+    public SaveData loadedData;
     public System.DateTime LastSaveTime { get; private set; }
 
     private void Awake()

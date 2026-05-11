@@ -2341,7 +2341,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549cf047cbffabb4c9f7cca50f94ebb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeRuntimeData
-  AllUpgrades: []
+  AllUpgrades:
+  - {fileID: 11400000, guid: 83975d07464c1554195515a798797605, type: 2}
+  - {fileID: 11400000, guid: bb9d33277a8bd184983ecd6be7a7dbe0, type: 2}
+  - {fileID: 11400000, guid: c0c923ec0fb2ceb4f85fbadba862f7d4, type: 2}
+  - {fileID: 11400000, guid: cf13156fd0fab5a45865974f5b1466e1, type: 2}
+  - {fileID: 11400000, guid: b48947b69a809e645abf02be62733346, type: 2}
+  - {fileID: 11400000, guid: 26c5eed20af6f964383c6c2cd67f94b9, type: 2}
+  - {fileID: 11400000, guid: 5de89e41072237d419b03b53092742a7, type: 2}
 --- !u!4 &531669857
 Transform:
   m_ObjectHideFlags: 0
@@ -3338,6 +3345,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SavingSystem
   savePath: 
+  loadedData:
+    level: 0
+    xp: 0
+    tears: 0
+    bottleTears: 0
+    upgradeLevels: 
 --- !u!1 &864868974
 GameObject:
   m_ObjectHideFlags: 0

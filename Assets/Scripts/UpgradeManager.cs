@@ -69,23 +69,29 @@ public class UpgradeManager : MonoBehaviour
         // Bottle size
         if (data.bottleCapacityIncrease > 0)
         {
-            tearSystem.bottleCapacity += data.bottleCapacityIncrease * level;
+            tearSystem.bottleCapacity =
+                tearSystem.baseBottleCapacity +
+                Mathf.RoundToInt(
+                    data.bottleCapacityIncrease * level * level * 0.5f
+                );
 
             if (bottleTransform == null) return;
 
             if (level <= 3)
             {
-                bottleTransform.localScale = originalBottleScale * (1f + level * 0.08f);
+                float scale = 1f + (0.15f * level);
+
+                bottleTransform.localScale =
+                    originalBottleScale * scale;
             }
             else if (level == 4)
             {
                 tearSystem.bottleLevels = tearSystem.finalBottleLevels;
                 tearSystem.UpdateBottle();
 
-                // Reset scale for final bottle
-                bottleTransform.localScale = originalBottleScale * 1.05f;
+                bottleTransform.localScale =
+                    originalBottleScale * 1.5f;
 
-                // Optional position adjustment
                 bottleTransform.localPosition = new Vector3(
                     bottleTransform.localPosition.x,
                     bottleTransform.localPosition.y - 0.2f,
@@ -170,10 +176,11 @@ public class UpgradeManager : MonoBehaviour
     // BOTTLE (absolute state)
     if (data.bottleCapacityIncrease > 0)
     {
-        tearSystem.bottleCapacity =
-            tearSystem.baseBottleCapacity + (data.bottleCapacityIncrease * level);
+            tearSystem.bottleCapacity =
+            tearSystem.baseBottleCapacity +
+            Mathf.RoundToInt(data.bottleCapacityIncrease * level * level * 0.5f);
 
-        float scale = 1f + (0.1f * level);
+            float scale = 1f + (0.1f * level);
         bottleTransform.localScale = originalBottleScale * scale;
 
         if (level >= 4)

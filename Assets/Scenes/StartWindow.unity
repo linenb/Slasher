@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 610865849}
   - component: {fileID: 610865848}
   - component: {fileID: 610865847}
+  - component: {fileID: 610865852}
   m_Layer: 2
   m_Name: ExitButton
   m_TagString: Untagged
@@ -651,6 +652,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610865845}
   m_CullTransparentMesh: 1
+--- !u!225 &610865852
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610865845}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &698158890
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +997,7 @@ GameObject:
   - component: {fileID: 934186682}
   - component: {fileID: 934186681}
   - component: {fileID: 934186680}
+  - component: {fileID: 934186685}
   m_Layer: 2
   m_Name: LoadButton
   m_TagString: Untagged
@@ -1146,6 +1160,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934186678}
   m_CullTransparentMesh: 1
+--- !u!225 &934186685
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934186678}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1041280682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,6 +1242,7 @@ GameObject:
   - component: {fileID: 1082961730}
   - component: {fileID: 1082961733}
   - component: {fileID: 1082961734}
+  - component: {fileID: 1082961735}
   m_Layer: 2
   m_Name: StartButton
   m_TagString: Untagged
@@ -1378,6 +1405,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonHover
   hoverScale: 1.08
   speed: 12
+--- !u!225 &1082961735
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082961728}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1295661284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1430,7 @@ GameObject:
   - component: {fileID: 1295661287}
   - component: {fileID: 1295661286}
   - component: {fileID: 1295661285}
+  - component: {fileID: 1295661290}
   m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
@@ -1500,6 +1540,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1295661290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295661284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611763ef099795441b29fb24c1c806bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartScreenAnimator
+  logo: {fileID: 1342479694}
+  newGameButton: {fileID: 1082961735}
+  continueButton: {fileID: 934186685}
+  exitButton: {fileID: 610865852}
 --- !u!1 &1342479690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,6 +1567,7 @@ GameObject:
   - component: {fileID: 1342479691}
   - component: {fileID: 1342479693}
   - component: {fileID: 1342479692}
+  - component: {fileID: 1342479694}
   m_Layer: 2
   m_Name: Logo
   m_TagString: Untagged
@@ -1575,6 +1632,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342479690}
   m_CullTransparentMesh: 1
+--- !u!225 &1342479694
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342479690}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1950786788
 GameObject:
   m_ObjectHideFlags: 0

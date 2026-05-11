@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 63686864}
   - component: {fileID: 63686866}
   - component: {fileID: 63686867}
+  - component: {fileID: 63686868}
   m_Layer: 0
   m_Name: Character
   m_TagString: Character
@@ -650,6 +651,47 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e3efe74b38763a4195593c8708a805d, type: 3}
   - {fileID: 21300000, guid: 588f5db1f79640c4d956655fafee3db9, type: 3}
   fps: 13
+--- !u!114 &63686868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63686859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58758f1e26a843f4f9ce4203227c738b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoxAnimation
+  idleFrames:
+  - {fileID: 931563175312495562, guid: eaef385624d845444ac5333c6a7fe8f2, type: 3}
+  - {fileID: -7151888925923573308, guid: d0f239c5ad136ae408d599b2b0887ae0, type: 3}
+  - {fileID: -7258171893378039396, guid: b996ae44bd7b79b4bbd72fa5b3fccea2, type: 3}
+  - {fileID: -5019967341832841096, guid: 5041fbc4aa35eb249acff690a4fb3a20, type: 3}
+  goldenFrames1:
+  - {fileID: 931563175312495562, guid: 33b30c32c7c95bc4697c53c236e4c68b, type: 3}
+  - {fileID: -7151888925923573308, guid: 2c1f8c0870249424fb1d644b664a1c9f, type: 3}
+  - {fileID: -7258171893378039396, guid: 6db14b6a142338941a6c16037e5c247b, type: 3}
+  - {fileID: -5019967341832841096, guid: 157277cc2a82bfd489dac5233290c986, type: 3}
+  goldenFrames2:
+  - {fileID: 931563175312495562, guid: 41a36e89e65885e4cb55b40d82c64c93, type: 3}
+  - {fileID: -7151888925923573308, guid: 3c8a35e775fa3bd42b513cb4ca6dffc3, type: 3}
+  - {fileID: -7258171893378039396, guid: 10feba3513be7f842b2ad738f62dfa1a, type: 3}
+  - {fileID: -5019967341832841096, guid: b4c720faa2e41e345815d3b2563917c7, type: 3}
+  vinesFrames:
+  - {fileID: 931563175312495562, guid: 0258e72ffe036584197e2a985cbec0d4, type: 3}
+  - {fileID: -7151888925923573308, guid: 95783d0e6bae66b4d9d8ae79d81f5cda, type: 3}
+  - {fileID: -7258171893378039396, guid: 8c78d24b99e0c1f42a6f68428404deef, type: 3}
+  - {fileID: -5019967341832841096, guid: 0bb9116bce50ad146a97c7dfafe3139c, type: 3}
+  vinesWingsFrames:
+  - {fileID: 931563175312495562, guid: de4f7b2c99848bb42890b2dd9a74582b, type: 3}
+  - {fileID: -7151888925923573308, guid: 09599ce92b641ac468c993542b78ceb5, type: 3}
+  - {fileID: -7258171893378039396, guid: 1c581ce7c1e93504e9d9f8c6a47a3a1d, type: 3}
+  - {fileID: -5019967341832841096, guid: abbeec5996af4aa4eac01c3999e60715, type: 3}
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
+  shakeSpeed: 25
+  fps: 4
 --- !u!1 &65566269
 GameObject:
   m_ObjectHideFlags: 0

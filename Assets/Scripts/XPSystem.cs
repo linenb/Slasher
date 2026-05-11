@@ -86,6 +86,21 @@ public class XPSystem : MonoBehaviour
         // Clamp so we don't go out of bounds if player exceeds all defined tiers
         int index = Mathf.Min(tier, characterSprites.Length - 1);
         characterRenderer.sprite = characterSprites[index];
+        if (FoxAnimation.instance != null)
+        {
+            switch (tier)
+            {
+                case 0:
+                    FoxAnimation.instance.SetNormalFox();
+                    break;
+                case 1:
+                    FoxAnimation.instance.SetVinesFox();
+                    break;
+                case 2:
+                    FoxAnimation.instance.SetVinesWingsFox();
+                    break;
+            }
+        }
     }
 
     void UpdateUI()

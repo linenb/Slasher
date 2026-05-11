@@ -162,6 +162,9 @@ public class TearSystem : MonoBehaviour
     // =========================
     public void BatScareExplosion()
     {
+        if (FoxAnimation.instance != null)
+        FoxAnimation.instance.PlayScareShake();
+
         if (XPSystem.instance == null) return;
 
         int level = XPSystem.instance.currentLevel;

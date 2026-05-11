@@ -17,10 +17,10 @@ public class AnimalDeathAnimation : MonoBehaviour
 
     public void PlayDeath()
     {
-        if (!isPlaying)
-        {
-            StartCoroutine(PlayAnimation());
-        }
+    if (FoxAnimation.instance != null)
+            FoxAnimation.instance.StopIdle();
+    
+    StartCoroutine(PlayAnimation());
     }
 
     IEnumerator PlayAnimation()

@@ -97,11 +97,22 @@ public class UpgradeManager : MonoBehaviour
         // Golden tear chance
         if (data.goldenTear)
         {
-            tearSystem.goldenTearChance += 0.05f;
-            characterSpriteRenderer.sprite = goldenSprite1;
-            if (level == data.maxLevel)
+            tearSystem.goldenTearChance = 0.05f * level;
+
+            if (level <= 0)
+            {
+                characterSpriteRenderer.sprite = normalSprite;
+                FoxAnimation.instance?.SetNormalFox();
+            }
+            else if (level < data.maxLevel)
+            {
+                characterSpriteRenderer.sprite = goldenSprite1;
+                FoxAnimation.instance?.SetGoldenFox1();
+            }
+            else
             {
                 characterSpriteRenderer.sprite = goldenSprite2;
+                FoxAnimation.instance?.SetGoldenFox2();
             }
         }
 
@@ -176,7 +187,6 @@ public class UpgradeManager : MonoBehaviour
     if (data.goldenTear)
     {
         tearSystem.goldenTearChance = 0.05f * level;
-
         if (level <= 0)
             characterSpriteRenderer.sprite = normalSprite;
         else if (level < data.maxLevel)

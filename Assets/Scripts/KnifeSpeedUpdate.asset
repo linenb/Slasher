@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnifeSpeedUpdate
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Lighter knife
-  description: Makes knife move a bit slower
+  description: Makes the knife move a bit slower.
   baseCost: 50
   costMultiplier: 2
   linearCostIncrease: 0

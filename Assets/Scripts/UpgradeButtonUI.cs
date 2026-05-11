@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class UpgradeButtonUI : MonoBehaviour
+public class UpgradeButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI costText;
@@ -30,6 +31,20 @@ public class UpgradeButtonUI : MonoBehaviour
         normalColor = buttonImage.color;
 
         Refresh();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (data == null || UpgradeTooltip.instance == null) return;
+        if (string.IsNullOrEmpty(data.description)) return;
+
+        UpgradeTooltip.instance.Show(data.description, Input.mousePosition);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (UpgradeTooltip.instance != null)
+            UpgradeTooltip.instance.Hide();
     }
 
     void Update()
@@ -93,6 +108,10 @@ public class UpgradeButtonUI : MonoBehaviour
         {
             purchaseCountText.text = "Bought: " + level;
         }
+
+        // Keep tooltip position in sync with mouse while hovering
+        if (UpgradeTooltip.instance != null && UpgradeTooltip.instance.IsVisible)
+            UpgradeTooltip.instance.UpdatePosition(Input.mousePosition);
 
         Refresh();
     }

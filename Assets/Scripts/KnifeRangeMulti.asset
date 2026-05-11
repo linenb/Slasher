@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: KnifeRangeMulti
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Knife range multiplier
-  description: "Paspaudus/nusipirkus upgrade peiliui b\u016Bnant arti lap\u0117s
-    grei\u010Diau renkasi a\u0161aros(pakei\u010Diamas reikiamas laikas nukristi
-    a\u0161arai, o ne jos vert\u0117). Nuo paprasto *1 pakeisti \u012F *x(tikt\u0173
-    prid\u0117ti +0.1, kadangi multiplikacija). Galima nusipirkti tik su u\u017Etektinai
-    a\u0161ar\u0173, gana brangus, tai prad\u0117ti 100 vert\u0117s, pakilti +100
-    kiekvien\u0105 nusipirkim\u0105."
+  description: Tears drop faster when knife is closer to fox.
   baseCost: 100
   costMultiplier: 2
   linearCostIncrease: 100

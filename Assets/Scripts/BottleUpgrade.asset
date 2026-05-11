@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BottleUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Bigger Bottle
-  description: 'Increase bottle capacity by '
+  description: Upgrades bottle capacity.
   baseCost: 5
   costMultiplier: 5
   linearCostIncrease: 0

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: upgradepvz
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: TEST
-  description: this is an upgrade
+  description: Debug upgrade
   baseCost: 10
   costMultiplier: 1.5
+  linearCostIncrease: 0
   maxLevel: 10
   goldenTear: 0
   bottleCapacityIncrease: 5
@@ -23,3 +24,5 @@ MonoBehaviour:
   clickValueIncrease: 1
   fallingSpeedMultiplier: 0.2
   liftSpeedMultiplier: 4
+  tearsPerSpawnIncrease: 0
+  tearSpeedMultiplierIncrease: 0

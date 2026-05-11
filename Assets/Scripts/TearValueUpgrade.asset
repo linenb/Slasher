@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: TearValueUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Tear Value
-  description: Increase click value of a tear
-  Bottle: {fileID: 0}
+  description: Increases value of clicked tears.
   baseCost: 200
   costMultiplier: 5
+  linearCostIncrease: 0
   maxLevel: 10
+  goldenTear: 0
   bottleCapacityIncrease: 0
   spawnSpeedMultiplier: 0
   clickValueIncrease: 0
   fallingSpeedMultiplier: 0
   liftSpeedMultiplier: 0
+  tearsPerSpawnIncrease: 0
+  tearSpeedMultiplierIncrease: 0

@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Extra tears
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Extra tears
-  description: "Paspaudus/nusipirkus upgrade vietoj vienos a\u0161aros per x laik\u0105,
-    nukris dar viena ekstra(brangus 250, kaina padid\u0117ja *3).Galima nusipirkti
-    tik su u\u017Etektinai a\u0161ar\u0173."
+  description: Increases dropped tear rate.
   baseCost: 250
   costMultiplier: 3
   linearCostIncrease: 0

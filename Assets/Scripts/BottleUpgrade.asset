@@ -15,11 +15,11 @@ MonoBehaviour:
   upgradeName: Bigger Bottle
   description: 'Increase bottle capacity by '
   baseCost: 5
-  costMultiplier: 5
+  costMultiplier: 4
   linearCostIncrease: 0
   maxLevel: 10
   goldenTear: 0
-  bottleCapacityIncrease: 8
+  bottleCapacityIncrease: 45
   spawnSpeedMultiplier: 0
   clickValueIncrease: 0
   fallingSpeedMultiplier: 0
